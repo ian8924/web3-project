@@ -5,33 +5,33 @@ import {
   useContractEvent
 } from "wagmi";
 import { useState } from "react";
+import moment from "moment";
 
 export function Contract() {
   const [input, setInput] = useState("");
   const { address } = useAccount();
   const { write, status } = useContractWrite({
-    addressOrName: "0x46708Db9eee8735991CC5F6EA0d610161D59D77E",
-    contractInterface: ["function newMsg(string memory str)"],
+    addressOrName: "0xAf53559B48463e6d66A18611Ae5FA9621259c421",
+    contractInterface: ["function newMsg(string memory input) public"],
     functionName: "newMsg",
-    args: [input],
+    args:  [  JSON.stringify({ address, input, time: moment().format() }) ],
     chainId: 5
   });
-  const { data, refetch } = useContractRead({
-    addressOrName: "0x46708Db9eee8735991CC5F6EA0d610161D59D77E",
+
+  const { data , refetch } =  useContractRead({
+    addressOrName: "0xAf53559B48463e6d66A18611Ae5FA9621259c421",
     contractInterface: [
-      "function showLastestMsg(uint256 len, address user) public view returns (string[] memory)"
+      "function showAllComment() public view returns (string[] memory)"
     ],
-    functionName: "showLastestMsg",
-    args: ["5", address],
+    functionName: "showAllComment",
     chainId: 5
   });
-  // console.log(data);
+
   useContractEvent({
-    addressOrName: "0x46708Db9eee8735991CC5F6EA0d610161D59D77E",
+    addressOrName: "0xAf53559B48463e6d66A18611Ae5FA9621259c421",
     contractInterface: ["event newMessage(address user, string message)"],
     eventName: "newMessage",
     listener: (event) => {
-      // console.log(event);
       refetch();
     }
   });
@@ -51,6 +51,4 @@ export function Contract() {
       {data && <pre>&gt; {data.join("\r\n> ")}</pre>}
     </>
   );
-
-  // <div>{JSON.stringify(data)}</div>;
 }
