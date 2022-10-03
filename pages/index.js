@@ -35,12 +35,8 @@ export default function IndexPage() {
       <RainbowKitProvider chains={chains}>
         <div
           style={{
-            width: "100vw",
+            width: "100%",
             height: "100vh",
-            padding: "50px"
-            // display: "flex",
-            // alignItems: "center",
-            // justifyContent: "center"
           }}
         >
           <ConnectButton />
