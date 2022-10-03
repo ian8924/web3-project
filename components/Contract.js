@@ -6,7 +6,6 @@ import {
 } from "wagmi";
 import { useState } from "react";
 import moment from "moment";
-// import "../assets/style.css";
 
 import styled from 'styled-components';
 const List = styled.div`
@@ -59,12 +58,15 @@ export function Contract() {
 
 
   const sendMsg = () => {
+    if(!address){
+      alert('請先連結錢包！')
+      return
+    }
     write();
     setInput("")
   }
 
   comments = data.map(i=> JSON.parse(i))
-  console.log(comments)
 
   useContractEvent({
     addressOrName: "0xAf53559B48463e6d66A18611Ae5FA9621259c421",
