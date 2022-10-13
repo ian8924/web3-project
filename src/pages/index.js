@@ -8,7 +8,6 @@ import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import { ChakraProvider } from "@chakra-ui/react";
-
 import { AccountBoard } from "../components/AccountBoard";
 import { Contract } from "../components/Contract";
 import React from "react";
