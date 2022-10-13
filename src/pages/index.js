@@ -11,7 +11,6 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { AccountBoard } from "../components/AccountBoard";
 import { Contract } from "../components/Contract";
 import React from "react";
-
 import NonSSRWrapper from "../components/NoSSRWrapper";
 
 const { chains, provider } = configureChains(

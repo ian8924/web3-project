@@ -1,8 +1,4 @@
-
-.rtl {
-  direction: rtl;
-  unicode-bidi: bidi-override;
-}
+@import './foundation/config';
 
 html {
   /* Prevent font scaling in landscape while allowing user zoom */
@@ -15,6 +11,7 @@ body {
   scroll-behavior: smooth;
   padding: 0;
   margin: 0;
+
   width: 100%;
   background-color: $bg-color;
   color: $primary-color-1;
@@ -83,14 +80,6 @@ section {
   justify-content: center;
   align-items: center;
 
-  &>.content {
-    position: relative;
-    max-width: $content-with;
-    width: 100%;
-    padding: 2rem;
-    z-index: 2;
-  }
-
   &>.title {
     position: relative;
     z-index: 2;
@@ -99,17 +88,6 @@ section {
   .logo-box {
     cursor: pointer;
     width: 170px;
-  }
-}
-
-section {
-  &:not(:first-of-type) {
-    margin-top: 5rem;
-    margin-bottom: 3rem;
-  }
-
-  &:nth-last-of-type() {
-    margin-bottom: 5rem;
   }
 }
 
@@ -595,233 +573,6 @@ button {
   }
 
 }
-
-
-.test {
-  .test-card {
-    background-color: antiquewhite;
-
-    &:nth-of-type(odd) {
-      background-color: aqua;
-    }
-
-    &:nth-of-type(even) {
-      background-color: aquamarine;
-    }
-  }
-
-}
-
-.section-roadmap {
-  // width: 100%;
-  // height: 100vh;
-  padding: 2rem 0;
-
-  .title {
-    z-index: 2;
-    margin: 0.8rem auto 1rem;
-    // text-align: center;
-  }
-
-  .content {
-    // display: flex;
-    // z-index: 3;
-    // width: 90%;
-    // margin: 0 auto;
-    // height: 300px;
-  }
-
-  .roadmap-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    // height: 400px;
-    width: 400px;
-    max-width: 100%;
-    margin: 2rem auto;
-    padding: 1rem 2rem;
-
-    @media screen and (max-width: 768px) {
-      padding: 1rem .5rem;
-
-
-    }
-
-    .title {
-      font-weight: bold;
-      font-size: 3.5rem;
-      margin: 0.8rem 0 1.2rem;
-    }
-
-    li {
-      font-size: 1.2rem;
-      font-weight: 400;
-      line-height: 1.8;
-      list-style-type: disc;
-      word-break: normal;
-      margin-left: 1rem;
-    }
-
-  }
-
-  .roadmap-carousel {
-    padding: 1rem 2rem;
-
-    @media screen and (max-width: 768px) {
-      padding: 0 .5rem !important;
-    }
-
-    &> :not([class^="styles-module"]) {
-      display: flex;
-      // flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 0 .5rem;
-    }
-
-    &>[class^="styles-module"] {
-      margin: 0 2rem;
-
-      @media screen and (max-width: 768px) {
-        margin: 0 1rem;
-      }
-    }
-
-    .btn-arrow {
-      z-index: 5;
-      position: absolute;
-      cursor: pointer;
-      border: none;
-      padding: .5rem;
-
-      &:hover {
-        background: none;
-
-        .icon-arrow {
-          fill: rgb(210, 210, 210) !important;
-        }
-      }
-
-      &:active {
-        background: none;
-
-        .icon-arrow {
-          fill: rgb(180, 180, 180) !important;
-        }
-      }
-
-      .icon-arrow {
-        fill: white;
-
-        &.right-arrow {
-          transform: rotate(180deg);
-        }
-      }
-    }
-
-  }
-}
-
-// Menu
-/* Position and sizing of burger button */
-.bm-burger-button {
-  position: relative;
-  width: 36px;
-  height: 30px;
-  top: 1rem;
-  left: 0;
-}
-
-/* Color/shape of burger icon bars */
-.bm-burger-bars {
-  background: rgba(255, 255, 255, .7);
-  border-radius: 5px;
-  height: 5px !important;
-}
-
-/* Color/shape of burger icon bars on hover*/
-.bm-burger-bars-hover {
-  background: rgb(180, 180, 180);
-}
-
-/* Position and sizing of clickable cross button */
-.bm-cross-button {
-  height: 24px;
-  width: 24px;
-}
-
-/* Color/shape of close button cross */
-.bm-cross {
-  background: #bdc3c7;
-}
-
-/*
-Sidebar wrapper styles
-Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
-*/
-.bm-menu-wrap {
-  z-index: 10;
-  position: fixed;
-  height: 100%;
-}
-
-/* General sidebar styles */
-.bm-menu {
-  background: $primary-color-2;
-  padding: 2.5em 1.5em 0;
-  font-size: 1.15em;
-}
-
-/* Morph shape necessary with bubble or elastic */
-.bm-morph-shape {
-  fill: $primary-color-1;
-}
-
-/* Wrapper for item list */
-.bm-item-list {
-  color: #b8b7ad;
-  padding: 0.8em;
-}
-
-/* Individual item */
-.bm-item {
-  color: $primary-color-1;
-  margin: 1rem 0;
-  display: inline-block;
-}
-
-/* Styling of overlay */
-.bm-overlay {
-  z-index: 9;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.3);
-}
-
-
-// gradient-border
-.gradient-border {
-  --borderWidth: 2px;
-  // background: #1D1F20;
-  position: relative;
-  border-radius: var(--borderWidth);
-}
-
-.gradient-border:after {
-  content: '';
-  position: absolute;
-  top: calc(-1 * var(--borderWidth));
-  left: calc(-1 * var(--borderWidth));
-  height: calc(100% + var(--borderWidth) * 2);
-  width: calc(100% + var(--borderWidth) * 2);
-  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-  border-radius: calc(2 * var(--borderWidth));
-  z-index: -1;
-  animation: animatedgradient 3s ease alternate infinite;
-  background-size: 300% 300%;
-}
-
 
 @keyframes animatedgradient {
   0% {

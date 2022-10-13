@@ -4,7 +4,7 @@ import Main from '../components/Main/Main';
 
 export default function homePage() {
   return (
-    <div>
+    <div className='body'>
       <Header />
       <Main />
     </div>
