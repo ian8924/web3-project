@@ -1,26 +1,22 @@
-import Head from 'next/head';
 import React from 'react';
 import ImageBgMain from '../../assets/images/bg-main.png';
+import { Box, Center } from '@chakra-ui/react';
 
 export default function Main() {
   return (
     <>
-      <Head>
-        <title>Web3 Project</title>
-      </Head>
-      <section className="section-main">
+      <Box className="section-main">
         <div className="bg-cover desktop">
           <div className="ImageBgMain-cont">
-            {/* <img src={ImageBgMain.src} width="100%" height="100%" alt="ImageBgMain" /> */}
+            <img src={ImageBgMain.src} width="100%" height="100%" alt="ImageBgMain" />
           </div>
         </div>
-        <div data-aos="fade-up" data-aos-anchor-placement="top-bottom" className="content">
-          <div className="slogan-box">
+        <div className="content">
+          <Center>
             <h1>
               Web3 <br />Project
             </h1>
-
-          </div>
+          </Center>
           <div className="ctrls-box">
             <button className="btn-launch" >
               Connect
@@ -28,7 +24,7 @@ export default function Main() {
 
           </div>
         </div>
-      </section>
+      </Box>
     </>
   );
 }
