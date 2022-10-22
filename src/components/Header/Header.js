@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import Image from 'next/dist/client/image';
 import { useRouter } from 'next/router';
-import { Box, Button, ButtonGroup, Center, Flex, Spacer } from '@chakra-ui/react';
+import { Button, ButtonGroup, Center, Flex, Spacer } from '@chakra-ui/react';
 
 export default function Header() {
   const router = useRouter();
@@ -11,8 +11,8 @@ export default function Header() {
 
 
   return (
-    <>
-      <Flex justify='space-between' align='center' py='1rem' bg='transparent'>
+    <div className='header'>
+      <Flex className='content' justify='space-between' align='center' py='2rem' px='3rem' bg='transparent'>
         <Center m={1}>
           Logo
         </Center>
@@ -24,6 +24,6 @@ export default function Header() {
           <Button colorScheme='teal'>Discord</Button>
         </ButtonGroup>
       </Flex>
-    </>
+    </div>
   );
 }
