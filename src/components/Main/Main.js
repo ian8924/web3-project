@@ -1,30 +1,25 @@
-import React from 'react';
-import ImageBgMain from '../../assets/images/bg-main.png';
-import { Box, Center } from '@chakra-ui/react';
+import React from "react";
+// 背景
+import Wave from './Wave.js'
 
 export default function Main() {
   return (
     <>
-      <Box className="section-main">
-        <div className="bg-cover desktop">
-          <div className="ImageBgMain-cont">
-            <img src={ImageBgMain.src} width="100%" height="100%" alt="ImageBgMain" />
-          </div>
-        </div>
-        <div className="content">
-          <Center>
-            <h1>
-              Web3 <br />Project
+        <div className="container">
+          <div className="titles">
+            Into The <br />
+            <h1 className="strokeText" data-storke="Arjaverse!" id="title">
+              Arjaverse!
             </h1>
-          </Center>
-          <div className="ctrls-box">
-            <button className="btn-launch" >
-              Connect
-            </button>
-
           </div>
+          {/* sun */}
+          <div className="sun">
+            <div className="sun-content" />
+          </div>
+          {/* 海浪 */}
+          <Wave />
+          <div className="wave-bot"></div>
         </div>
-      </Box>
     </>
   );
 }

@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <div className='header'>
-      <Flex className='content' justify='space-between' align='center' py='2rem' px='3rem' bg='transparent'>
+      <Flex className='content' justify='space-between' align='center' py='2rem' px='3rem' bg='#FFF'>
         <Center m={1}>
           Logo
         </Center>
