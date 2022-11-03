@@ -7,11 +7,10 @@ import {
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
-import { ChakraProvider } from "@chakra-ui/react";
-import { AccountBoard } from "../components/AccountBoard";
-import { Contract } from "../components/Contract";
+import { AccountBoard } from "../../components/AccountBoard";
+import { Contract } from "../../components/Contract";
 import React from "react";
-import NonSSRWrapper from "../components/NoSSRWrapper";
+import NonSSRWrapper from "../../components/NoSSRWrapper";
 
 const { chains, provider } = configureChains(
   [chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum, chain.goerli],
@@ -29,30 +28,28 @@ const wagmiClient = createClient({
   provider,
 });
 
-export default function homePage() {
+export default function mintPage() {
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
-        <ChakraProvider>
-          <div
-            style={{
-              width: "100vw",
-              height: "100vh",
-              padding: "50px",
-              // display: "flex",
-              // alignItems: "center",
-              // justifyContent: "center"
-            }}
-          >
-            <ConnectButton />
-            {/* nonSSR -> prevent hydration error */}
-            <NonSSRWrapper>
-              <AccountBoard></AccountBoard>
-              <Contract />
-            </NonSSRWrapper>
-            {/* <h2> {address}</h2> */}
-          </div>
-        </ChakraProvider>
+        <div
+          style={{
+            width: "100vw",
+            height: "100vh",
+            padding: "50px",
+            // display: "flex",
+            // alignItems: "center",
+            // justifyContent: "center"
+          }}
+        >
+          <ConnectButton />
+          {/* nonSSR -> prevent hydration error */}
+          <NonSSRWrapper>
+            <AccountBoard></AccountBoard>
+            <Contract />
+          </NonSSRWrapper>
+          {/* <h2> {address}</h2> */}
+        </div>
       </RainbowKitProvider>
     </WagmiConfig>
   );

@@ -5,15 +5,15 @@ import "../styles/homePage.scss";
 
 const colors = {};
 const theme = extendTheme({
-  // styles: {
-  //   global: () => ({
-  //     body: {
-  //       bg: "",
-  //       color: "",
-  //       fontFamily: "",
-  //     },
-  //   }),
-  // },
+  styles: {
+    global: () => ({
+      body: {
+        bg: "",
+        color: "",
+        fontFamily: "",
+      },
+    }),
+  },
   colors,
 });
 
