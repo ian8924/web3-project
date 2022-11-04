@@ -1,7 +1,14 @@
-import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import React from "react";
 import "../styles/globals.scss";
 import "../styles/homePage.scss";
+import createCache from "@emotion/cache";
+import { CacheProvider } from "@emotion/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+
+const emotionCache = createCache({
+  key: "emotion-style",
+  prepend: true, // ensures styles are prepended to the <head>, instead of appended
+});
 
 const colors = {};
 const theme = extendTheme({
@@ -19,9 +26,11 @@ const theme = extendTheme({
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <CacheProvider value={emotionCache}>
+      <ChakraProvider theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </CacheProvider>
   );
 }
 

@@ -58,17 +58,28 @@ h5 {
   font-size: 1.7rem;
   margin: 1.4rem 0 0.7rem 0;
 }
-
+.strokeText {
+  left: 0;
+  position: relative;
+  color: rgba(250, 201, 46, 1);
+  z-index: 4;
+  font-size: 30px;
+}
+.strokeText::before {
+    content: attr(data-storke);
+    position: absolute;
+    z-index: -1;
+    -webkit-text-stroke: 6px #425673;
+    text-stroke: 6px #425673;
+}
 
 @keyframes animatedgradient {
   0% {
     background-position: 0% 50%;
   }
-
   50% {
     background-position: 100% 50%;
   }
-
   100% {
     background-position: 0% 50%;
   }

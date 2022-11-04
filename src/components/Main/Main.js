@@ -1,7 +1,7 @@
 import React from "react";
 // 背景
 import Wave from "./Wave.js";
-import { Flex, Spacer, Image, Box} from "@chakra-ui/react";
+import { Flex, Spacer, Image, Box } from "@chakra-ui/react";
 import arja from "../../assets/svg/arja.png";
 import cloud1 from "../../assets/images/clouds/0.png";
 import cloud2 from "../../assets/images/clouds/1.png";
@@ -64,7 +64,7 @@ export default function Main() {
           zIndex="3"
         >
           Into The <br />
-          <div className="strokeText" data-storke="Arjaverse!" id="title" >
+          <div className="strokeText" data-storke="Arjaverse!" id="title">
             Arjaverse!
           </div>
         </Box>

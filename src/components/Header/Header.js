@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 // import Image from 'next/dist/client/image';
 import { useRouter } from "next/router";
-import { Button, ButtonGroup, Center, Flex, Spacer } from "@chakra-ui/react";
+import {
+  Button,
+  ButtonGroup,
+  Center,
+  Flex,
+  Image,
+  Spacer,
+} from "@chakra-ui/react";
+import Logo from "../../assets/images/Logo.png";
 
 export default function Header() {
   const router = useRouter();
@@ -10,18 +18,25 @@ export default function Header() {
   };
 
   return (
-    <div className="header">
-      <div className="m-2">sssd</div>
+    <div className="bg-white">
       <Flex
-        className="m-2"
         justify="space-between"
         align="center"
         py="2rem"
         px="3rem"
-        bg="#FFF"
-        overflow='hidden'
+        // bg="black"
+        overflow="hidden"
       >
-        <Center m={1}>Logo</Center>
+        <Flex gap={3}>
+          <Image src={Logo.src} />
+          <div
+            className="strokeText "
+            data-storke="Into The Arjaverse!"
+            id="title"
+          >
+            Into The Arjaverse!
+          </div>
+        </Flex>
         <Spacer />
         <ButtonGroup gap="2">
           <Button colorScheme="teal">IG</Button>
