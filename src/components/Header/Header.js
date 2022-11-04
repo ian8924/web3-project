@@ -19,6 +19,7 @@ export default function Header() {
         py="2rem"
         px="3rem"
         bg="#FFF"
+        overflow='hidden'
       >
         <Center m={1}>Logo</Center>
         <Spacer />
