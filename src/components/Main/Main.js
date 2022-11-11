@@ -27,23 +27,28 @@ export default function Main() {
         <Image
           src={cloud1.src}
           position="absolute"
+          width={{ base: "100px", sm: "auto", md: "auto" }}
           left="0"
           top={{ base: "30px", sm: "30px", md: "300px" }}
+          zIndex="2"
         />
         {/* cloud 2 */}
         <Image
           src={cloud2.src}
           position="absolute"
-          right="20%"
-          top={{ base: "100px", sm: "100px", md: "300px" }}
+          width={{ base: "200px", sm: "auto", md: "auto" }}
+          right={{ base: "-20%", sm: "20%", md: "20%" }} 
+          top={{ base: "180px", sm: "100px", md: "300px" }}
+          zIndex="2"
         />
         {/* cloud 3 */}
-        <Image src={cloud2.src} position="absolute" left="15%" top="650px" />
+        <Image src={cloud2.src} position="absolute" left="15%" top="650px" display={{ base: "none", sm: "block", md: "block" }}/>
         <Image
           src={seagull2.src}
           position="absolute"
           right="200px"
           top="600px"
+          display={{ base: "none", sm: "block", md: "block" }}
         />
         <Image
           width="200px"
@@ -51,15 +56,17 @@ export default function Main() {
           position="absolute"
           right="200px"
           top="650px"
+          display={{ base: "none", sm: "block", md: "block" }}
         />
 
         <Box
           className="titles"
           fontFamily="Palanquin Dark, sans-serif"
           fontStyle="SemiBold"
-          fontSize={{ base: "60px", sm: "60px", md: "120px" }}
+          fontSize={{ base: "50px", sm: "60px", md: "120px" }}
           marginTop={{ base: "100px", sm: "100px", md: "200px" }}
-          lineHeight={{ base: "70px", sm: "70px", md: "100px" }}
+          marginBottom={{ base: "30px", sm: "0", md: "0" }}
+          lineHeight={{ base: "60px", sm: "70px", md: "100px" }}
           color="#425673"
           zIndex="3"
         >
@@ -79,6 +86,7 @@ export default function Main() {
           position="absolute"
           left="10%"
           top="53px"
+          zIndex="1"
         >
           <Flex
             width={{ base: "250px", sm: "250px", md: "372px" }}
@@ -87,31 +95,38 @@ export default function Main() {
             backgroundColor="rgba(255, 229, 201, 1)"
           />
           <Image
+            width={{ base: "100px", sm: "120px", md: "120px" }}
             src={seagull1.src}
             position="absolute"
-            left="150px"
-            top="50px"
+            left= {{ base: "200px", sm: "150px", md: "150px" }}
+            top={{ base: "-20px", sm: "50px", md: "50px" }}
           />
           <Image
-            width="180px"
+            width={{ base: "120px", sm: "180px", md: "180px" }}
             src={seagull1.src}
             position="absolute"
-            left="40px"
-            top="110px"
+            left= {{ base: "200px", sm: "40px", md: "40px" }}
+            top={{ base: "10px", sm: "110px", md: "110px" }}
           />
         </Flex>
         {/* timer */}
         <Flex
           width="50%"
-          height="200px"
+          height="100px"
           bgColor="#ccc"
           alignItems="center"
           justifyContent="center"
-          marginBottom="20px"
+          marginBottom={{ base: "20px", sm: "20px", md: "20px" }}
           zIndex="20"
         />
         {/* 海豹 */}
-        <Image src={arja.src} alt="Dan Abramov" marginBottom="-550px" />
+        <Image 
+          width={{ base: "400px", sm: "auto", md: "auto" }} 
+          src={arja.src} 
+          alt="Dan Abramov" 
+          marginBottom={{ base: "-400px", sm: "-550px", md: "-550px" }} 
+          marginLeft={{ base: "300", sm: "", md: "" }} 
+        />
         {/* 海浪 */}
         <Wave />
         <div className="wave-bot"></div>

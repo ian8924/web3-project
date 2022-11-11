@@ -1,4 +1,5 @@
 import React from "react";
+import Head from 'next/head'
 import "../styles/globals.scss";
 import "../styles/homePage.scss";
 import createCache from "@emotion/cache";
@@ -26,11 +27,13 @@ const theme = extendTheme({
 
 function MyApp({ Component, pageProps }) {
   return (
+    <>
     <CacheProvider value={emotionCache}>
       <ChakraProvider theme={theme}>
         <Component {...pageProps} />
       </ChakraProvider>
     </CacheProvider>
+    </>
   );
 }
 
