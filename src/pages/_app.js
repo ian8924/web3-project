@@ -6,6 +6,7 @@ import { CacheProvider } from "@emotion/react";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import Header from "../components/Header/Header";
 import Head from "next/head";
+import Logo from "../../src/assets/images/logo.ico";
 
 const emotionCache = createCache({
   key: "style",
@@ -30,12 +31,14 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <title>Arjaverse!</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
           href="https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <link rel="icon" href={ Logo.src } />
       </Head>
       <CacheProvider value={emotionCache}>
         <ChakraProvider theme={theme}>

@@ -1,12 +1,6 @@
 import React from "react";
 // 背景
-import Wave from "./Wave.js";
-import { Flex, Center, Image, Box } from "@chakra-ui/react";
-import arja from "../../assets/svg/arja.png";
-import cloud1 from "../../assets/images/clouds/0.png";
-import cloud2 from "../../assets/images/clouds/1.png";
-import seagull1 from "../../assets/images/seagull/4.png";
-import seagull2 from "../../assets/images/seagull/1.png";
+import { Flex, Center, Box } from "@chakra-ui/react";
 import { useRouter } from "next/router.js";
 import Background from "../Background/Background.js";
 

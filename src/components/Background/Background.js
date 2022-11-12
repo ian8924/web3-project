@@ -27,23 +27,28 @@ export default function Background(props) {
         <Image
           src={cloud1.src}
           position="absolute"
+          width={{ base: "100px", sm: "auto", md: "auto" }}
           left="0"
           top={{ base: "30px", sm: "30px", md: "300px" }}
+          zIndex="2"
         />
         {/* cloud 2 */}
         <Image
           src={cloud2.src}
           position="absolute"
-          right="20%"
-          top={{ base: "100px", sm: "100px", md: "300px" }}
+          width={{ base: "200px", sm: "auto", md: "auto" }}
+          right={{ base: "-20%", sm: "20%", md: "20%" }} 
+          top={{ base: "180px", sm: "100px", md: "300px" }}
+          zIndex="2"
         />
         {/* cloud 3 */}
-        <Image src={cloud2.src} position="absolute" left="15%" top="650px" />
+        <Image src={cloud2.src} position="absolute" left="15%" top="650px" display={{ base: "none", sm: "block", md: "block" }}/>
         <Image
           src={seagull2.src}
           position="absolute"
           right="200px"
           top="600px"
+          display={{ base: "none", sm: "block", md: "block" }}
         />
         <Image
           width="200px"
@@ -51,6 +56,7 @@ export default function Background(props) {
           position="absolute"
           right="200px"
           top="650px"
+          display={{ base: "none", sm: "block", md: "block" }}
         />
         {props.children}
         {/* sun */}
@@ -64,6 +70,7 @@ export default function Background(props) {
           position="absolute"
           left="10%"
           top="53px"
+          zIndex="1"
         >
           <Flex
             width={{ base: "250px", sm: "250px", md: "372px" }}
@@ -72,21 +79,28 @@ export default function Background(props) {
             backgroundColor="rgba(255, 229, 201, 1)"
           />
           <Image
+            width={{ base: "100px", sm: "120px", md: "120px" }}
             src={seagull1.src}
             position="absolute"
-            left="150px"
-            top="50px"
+            left= {{ base: "200px", sm: "150px", md: "150px" }}
+            top={{ base: "-20px", sm: "50px", md: "50px" }}
           />
           <Image
-            width="180px"
+            width={{ base: "120px", sm: "180px", md: "180px" }}
             src={seagull1.src}
             position="absolute"
-            left="40px"
-            top="110px"
+            left= {{ base: "200px", sm: "40px", md: "40px" }}
+            top={{ base: "10px", sm: "110px", md: "110px" }}
           />
         </Flex>
-        {/* 海豹 */}
-        <Image src={arja.src} alt="Dan Abramov" marginBottom="-550px" />
+       {/* 海豹 */}
+       <Image 
+          width={{ base: "400px", sm: "auto", md: "auto" }} 
+          src={arja.src} 
+          alt="Dan Abramov" 
+          marginBottom={{ base: "-400px", sm: "-550px", md: "-550px" }} 
+          marginLeft={{ base: "300", sm: "", md: "" }} 
+        />
         {/* 海浪 */}
         <Wave />
         <div className="wave-bot"></div>
