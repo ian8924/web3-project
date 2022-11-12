@@ -33,13 +33,11 @@ export default function mintPage() {
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
         <div
+          className=""
           style={{
             width: "100vw",
             height: "100vh",
             padding: "50px",
-            // display: "flex",
-            // alignItems: "center",
-            // justifyContent: "center"
           }}
         >
           <ConnectButton />

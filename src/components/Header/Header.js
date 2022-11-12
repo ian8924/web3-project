@@ -19,33 +19,30 @@ export default function Header() {
   };
 
   return (
-    <div className="bg-white">
-      <Flex
-        justify="space-between"
-        align="center"
-        py="2rem"
-        px="3rem"
-        overflow="hidden"
-        shadow={""}
-      >
-        <Flex gap={3}>
-          <Image src={Logo.src} />
-          <div
-            className="strokeText "
-            data-storke="Into The Arjaverse!"
-            id="title"
-          >
-            Into The Arjaverse!
-          </div>
-        </Flex>
-        <Spacer />
-        <Center gap={6}>
-          <Icons id={"medium"} width={8} height={8} />
-          <Icons id={"telegram"} width={8} height={8} />
-          <Icons id={"opensea"} width={8} height={8} fill={""} />
-          <Icons id={"discord"} width={8} height={8} />
-        </Center>
+    <Flex
+      justify="space-between"
+      align="center"
+      px="3rem"
+      overflow="hidden"
+      className="bg-white shadow-top z-50 absolute w-full h-20"
+    >
+      <Flex gap={3}>
+        <Image src={Logo.src} />
+        <div
+          className="strokeText "
+          data-storke="Into The Arjaverse!"
+          id="title"
+        >
+          Into The Arjaverse!
+        </div>
       </Flex>
-    </div>
+      <Spacer />
+      <Center gap={6}>
+        <Icons id={"medium"} width={8} height={8} />
+        <Icons id={"telegram"} width={8} height={8} />
+        <Icons id={"opensea"} width={8} height={8} fill={""} />
+        <Icons id={"discord"} width={8} height={8} />
+      </Center>
+    </Flex>
   );
 }
