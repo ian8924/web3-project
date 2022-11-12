@@ -1,5 +1,4 @@
 import React from "react";
-import Head from 'next/head'
 import "../styles/globals.scss";
 import "../styles/homePage.scss";
 import createCache from "@emotion/cache";
@@ -32,7 +31,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-      <title>Arjaverse!</title>
+        <title>Arjaverse!</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
