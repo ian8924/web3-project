@@ -2,7 +2,7 @@ import {
   useContractWrite,
   useContractRead,
   useAccount,
-  useContractEvent
+  useContractEvent,
 } from "wagmi";
 import { useState } from "react";
 
@@ -14,16 +14,16 @@ export function Contract() {
     contractInterface: ["function newMsg(string memory str)"],
     functionName: "newMsg",
     args: [input],
-    chainId: 5
+    chainId: 5,
   });
   const { data, refetch } = useContractRead({
     addressOrName: "0x46708Db9eee8735991CC5F6EA0d610161D59D77E",
     contractInterface: [
-      "function showLastestMsg(uint256 len, address user) public view returns (string[] memory)"
+      "function showLastestMsg(uint256 len, address user) public view returns (string[] memory)",
     ],
     functionName: "showLastestMsg",
     args: ["5", address],
-    chainId: 5
+    chainId: 5,
   });
   // console.log(data);
   useContractEvent({
@@ -33,7 +33,7 @@ export function Contract() {
     listener: (event) => {
       // console.log(event);
       refetch();
-    }
+    },
   });
 
   return (
@@ -42,7 +42,7 @@ export function Contract() {
         <input
           value={input}
           onChange={(event) => setInput(event.target.value)}
-        ></input>
+        />
         <button onClick={() => write()}>Send</button>
         <br />
         <span style={{ color: "grey" }}>Tx Status: {status}</span>

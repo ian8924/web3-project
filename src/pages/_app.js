@@ -4,9 +4,12 @@ import "../styles/homePage.scss";
 import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import Header from "../components/Header/Header";
+import Head from "next/head";
+import Logo from "../../src/assets/images/logo.ico";
 
 const emotionCache = createCache({
-  key: "emotion-style",
+  key: "style",
   prepend: true, // ensures styles are prepended to the <head>, instead of appended
 });
 
@@ -26,11 +29,26 @@ const theme = extendTheme({
 
 function MyApp({ Component, pageProps }) {
   return (
-    <CacheProvider value={emotionCache}>
-      <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
-      </ChakraProvider>
-    </CacheProvider>
+    <>
+      <Head>
+        <title>Arjaverse!</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="icon" href={ Logo.src } />
+      </Head>
+      <CacheProvider value={emotionCache}>
+        <ChakraProvider theme={theme}>
+          <Header />
+          <div className="pt-20">
+            <Component {...pageProps} />
+          </div>
+        </ChakraProvider>
+      </CacheProvider>
+    </>
   );
 }
 
