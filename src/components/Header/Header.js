@@ -17,7 +17,7 @@ export default function Header() {
       align="center"
       px={{ base: "16px", sm: "3rem", md: "3rem" }}
       overflow="hidden"
-      className="absolute z-50 h-20 w-full bg-white shadow-top"
+      className="absolute z-50 w-full bg-white shadow-top h-20"
     >
       <Flex gap={3} align="center">
         <Image

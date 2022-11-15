@@ -12,7 +12,7 @@ export default function Background(props) {
   return (
     <>
       <Flex
-        className="dashboard"
+        className="dashboard "
         height={{ base: "1100px", sm: "1100px", md: "1200px" }}
         position="relative"
         textAlign="center"
@@ -37,12 +37,18 @@ export default function Background(props) {
           src={cloud2.src}
           position="absolute"
           width={{ base: "200px", sm: "auto", md: "auto" }}
-          right={{ base: "-20%", sm: "20%", md: "20%" }} 
+          right={{ base: "-20%", sm: "20%", md: "20%" }}
           top={{ base: "180px", sm: "100px", md: "300px" }}
           zIndex="2"
         />
         {/* cloud 3 */}
-        <Image src={cloud2.src} position="absolute" left="15%" top="650px" display={{ base: "none", sm: "block", md: "block" }}/>
+        <Image
+          src={cloud2.src}
+          position="absolute"
+          left="15%"
+          top="650px"
+          display={{ base: "none", sm: "block", md: "block" }}
+        />
         <Image
           src={seagull2.src}
           position="absolute"
@@ -82,24 +88,24 @@ export default function Background(props) {
             width={{ base: "100px", sm: "120px", md: "120px" }}
             src={seagull1.src}
             position="absolute"
-            left= {{ base: "200px", sm: "150px", md: "150px" }}
+            left={{ base: "200px", sm: "150px", md: "150px" }}
             top={{ base: "-20px", sm: "50px", md: "50px" }}
           />
           <Image
             width={{ base: "120px", sm: "180px", md: "180px" }}
             src={seagull1.src}
             position="absolute"
-            left= {{ base: "200px", sm: "40px", md: "40px" }}
+            left={{ base: "200px", sm: "40px", md: "40px" }}
             top={{ base: "10px", sm: "110px", md: "110px" }}
           />
         </Flex>
-       {/* 海豹 */}
-       <Image 
-          width={{ base: "400px", sm: "auto", md: "auto" }} 
-          src={arja.src} 
-          alt="Dan Abramov" 
-          marginBottom={{ base: "-400px", sm: "-550px", md: "-550px" }} 
-          marginLeft={{ base: "300", sm: "", md: "" }} 
+        {/* 海豹 */}
+        <Image
+          width={{ base: "400px", sm: "auto", md: "auto" }}
+          src={arja.src}
+          alt="Dan Abramov"
+          marginBottom={{ base: "-400px", sm: "-550px", md: "-550px" }}
+          marginLeft={{ base: "300", sm: "", md: "" }}
         />
         {/* 海浪 */}
         <Wave />

@@ -13,7 +13,7 @@ const emotionCache = createCache({
   prepend: true, // ensures styles are prepended to the <head>, instead of appended
 });
 
-const colors = {};
+const colors = { yellow: "#FAC92E", darkBlue: "#425673" };
 const theme = extendTheme({
   styles: {
     global: () => ({
@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }) {
           href="https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
-        <link rel="icon" href={ Logo.src } />
+        <link rel="icon" href={Logo.src} />
       </Head>
       <CacheProvider value={emotionCache}>
         <ChakraProvider theme={theme}>
