@@ -17,10 +17,10 @@ export default function ProfilePage() {
         <Box
           as="button"
           borderRadius="45px"
-          border="10px solid #425673"
-          width="360px"
-          height="90px"
-          fontSize="30px"
+          border={{ base: "5px solid #425673", sm: "10px solid #425673"}}   
+          width={{ base: "150px", sm: "360px" }} 
+          height={{ base: "50px", sm: "90px" }} 
+          fontSize={{ base: "20px", sm: "30px" }} 
           fontWeight="700"
           color="#425673"
           bg="#fff"
@@ -34,19 +34,20 @@ export default function ProfilePage() {
       <Box
         borderRadius="lg"
         color="#425673"
-        width="80%"
+        width={{ base: "90%", sm: "80%" }}
+        maxWidth='1100px'
         position="absolute"
-        bottom="100px"
+        bottom={{ base: "150px", sm: "100px" }}
         backgroundColor="rgba(255,255,255,.5)"
         display="flex"
         flexDirection="column"
         alignItems="center"
-        padding="50px 70px"
+        padding={{ base: "16px", sm: "50px 70px" }}  
       >
-        <Box fontSize="60px" marginBottom="24px">
+        <Box fontSize={{ base: "24px", sm: "60px" }} marginBottom={{ base: "16px", sm: "24px" }}>
           Zero-Knowledge rollup
         </Box>
-        <Box fontSize="24px" lineHeight="45px">
+        <Box fontSize={{ base: "16px", sm: "24px" }} lineHeight={{ base: "24px", sm: "45px" }}>
           1. 100 ＝＞ 1 ， 100筆資料打包成1筆上鏈，實現100個人
           free-mint，只要付一次 Gas <br />
           2. 大量的 MetaData 上鏈，包裝起來一次上鏈，降低所需的開發成本 <br />
