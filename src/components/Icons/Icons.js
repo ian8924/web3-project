@@ -1,14 +1,9 @@
 import React from "react";
-// import Image from 'next/dist/client/image';
-import { useRouter } from "next/router";
 import { Icon } from "@chakra-ui/react";
 
 export default function Icons(props) {
   const { id, fill, ...other } = props;
-  const router = useRouter();
-  const goPage = (page) => {
-    router.push(page);
-  };
+
   const viewBoxSwitch = () => {
     switch (id) {
       case "telegram":
