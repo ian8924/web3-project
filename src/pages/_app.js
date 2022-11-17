@@ -8,6 +8,7 @@ import Header from "../components/Header/Header";
 import Head from "next/head";
 import Logo from "../../src/assets/images/logo.ico";
 
+
 const emotionCache = createCache({
   key: "style",
   prepend: true, // ensures styles are prepended to the <head>, instead of appended
@@ -27,6 +28,51 @@ const theme = extendTheme({
   colors,
 });
 
+
+// rainbow-kit 設定
+import '@rainbow-me/rainbowkit/styles.css';
+
+import {
+  getDefaultWallets,
+  RainbowKitProvider,
+} from '@rainbow-me/rainbowkit';
+import {
+  chain,
+  configureChains,
+  createClient,
+  WagmiConfig,
+} from 'wagmi';
+import { alchemyProvider } from 'wagmi/providers/alchemy';
+import { publicProvider } from 'wagmi/providers/public';
+
+const { chains, provider } = configureChains(
+  [chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum],
+  [
+    alchemyProvider({ apiKey: process.env.ALCHEMY_ID }),
+    publicProvider()
+  ]
+);
+
+const { connectors } = getDefaultWallets({
+  appName: 'My RainbowKit App',
+  chains
+});
+
+const wagmiClient = createClient({
+  autoConnect: true,
+  connectors,
+  provider
+})
+
+const myCustomTheme = {
+  colors: {
+    connectButtonBackground: '#ccc',
+    connectButtonInnerBackground: '#ccc',
+  },
+}
+
+
+
 function MyApp({ Component, pageProps }) {
   return (
     <>
@@ -40,14 +86,18 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="icon" href={Logo.src} />
       </Head>
-      <CacheProvider value={emotionCache}>
-        <ChakraProvider theme={theme}>
-          <Header />
-          <div className="pt-20">
-            <Component {...pageProps} />
-          </div>
-        </ChakraProvider>
-      </CacheProvider>
+      <WagmiConfig client={wagmiClient}>
+        <RainbowKitProvider chains={chains} >
+          <CacheProvider value={emotionCache}>
+            <ChakraProvider theme={theme}>
+              <Header />
+              <div className="pt-20">
+                <Component {...pageProps} />
+              </div>
+            </ChakraProvider>
+          </CacheProvider>
+        </RainbowKitProvider>
+      </WagmiConfig>
     </>
   );
 }

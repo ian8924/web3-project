@@ -1,54 +1,61 @@
-import "@rainbow-me/rainbowkit/styles.css";
-import {
-  ConnectButton,
-  getDefaultWallets,
-  RainbowKitProvider,
-} from "@rainbow-me/rainbowkit";
-import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
-import { alchemyProvider } from "wagmi/providers/alchemy";
-import { publicProvider } from "wagmi/providers/public";
-import { AccountBoard } from "../../components/AccountBoard";
-import { Contract } from "../../components/Contract";
-import React from "react";
-import NonSSRWrapper from "../../components/NoSSRWrapper";
+import React, { useState } from "react";
+import { Flex, Center, Box } from "@chakra-ui/react";
+import Background from "../../components/Background/Background";
+import ContentBg from "../../components/Background/ContentBg";
 
-const { chains, provider } = configureChains(
-  [chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum, chain.goerli],
-  [alchemyProvider({ alchemyId: process.env.ALCHEMY_ID }), publicProvider()]
-);
-
-const { connectors } = getDefaultWallets({
-  appName: "My RainbowKit App",
-  chains,
-});
-
-const wagmiClient = createClient({
-  autoConnect: true,
-  connectors,
-  provider,
-});
-
-export default function mintPage() {
+export default function ProfilePage() {
   return (
-    <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains}>
-        <div
-          className=""
-          style={{
-            width: "100vw",
-            height: "100vh",
-            padding: "50px",
-          }}
+    <ContentBg position="relative">
+      <Box
+        position="absolute"
+        top="100px"
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Box
+          as="button"
+          borderRadius="45px"
+          border={{ base: "5px solid #425673", sm: "10px solid #425673"}}   
+          width={{ base: "150px", sm: "360px" }} 
+          height={{ base: "50px", sm: "90px" }} 
+          fontSize={{ base: "20px", sm: "30px" }} 
+          fontWeight="700"
+          color="#425673"
+          bg="#fff"
         >
-          <ConnectButton />
-          {/* nonSSR -> prevent hydration error */}
-          <NonSSRWrapper>
-            <AccountBoard></AccountBoard>
-            <Contract />
-          </NonSSRWrapper>
-          {/* <h2> {address}</h2> */}
-        </div>
-      </RainbowKitProvider>
-    </WagmiConfig>
+          MINT
+        </Box>
+        <Box fontSize="36px" fontWeight="700" color="#425673">
+          等待發放中...
+        </Box>
+      </Box>
+      <Box
+        borderRadius="lg"
+        color="#425673"
+        width={{ base: "90%", sm: "80%" }}
+        maxWidth='1100px'
+        position="absolute"
+        bottom={{ base: "150px", sm: "100px" }}
+        backgroundColor="rgba(255,255,255,.5)"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        padding={{ base: "16px", sm: "50px 70px" }}  
+      >
+        <Box fontSize={{ base: "24px", sm: "60px" }} marginBottom={{ base: "16px", sm: "24px" }}>
+          Zero-Knowledge rollup
+        </Box>
+        <Box fontSize={{ base: "16px", sm: "24px" }} lineHeight={{ base: "24px", sm: "45px" }}>
+          1. 100 ＝＞ 1 ， 100筆資料打包成1筆上鏈，實現100個人
+          free-mint，只要付一次 Gas <br />
+          2. 大量的 MetaData 上鏈，包裝起來一次上鏈，降低所需的開發成本 <br />
+          3. 項目方的空投活動，不再需要一個一個傳送 <br />
+          4. 令使用者只需利用錢包的簽章，即可 mint NFT，實現 0 Gas fee
+          <br />
+        </Box>
+      </Box>
+    </ContentBg>
   );
 }

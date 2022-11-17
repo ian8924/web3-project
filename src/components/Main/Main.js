@@ -3,6 +3,8 @@ import React from "react";
 import { Flex, Center, Box } from "@chakra-ui/react";
 import { useRouter } from "next/router.js";
 import Background from "../Background/Background.js";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+
 import { motion } from "framer-motion";
 //TODO: add animation
 
@@ -34,7 +36,19 @@ export default function Main() {
         bgColor="transparent"
         mt="80px"
         zIndex="20"
-      ></Flex>
+      >
+        {/* <button
+          className="bg-[#FAC92E] p-3 w-full h-full rounded-md"
+          onClick={() => goPage("/mint")}
+        >
+          <Center className="text-[#425673] text-2xl font-semibold">
+            Connect Wallet
+          </Center>
+        </button> */}
+        <div className="btn-connect">
+          <ConnectButton />
+        </div>
+      </Flex>
     </Background>
   );
 }
