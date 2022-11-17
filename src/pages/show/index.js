@@ -1,15 +1,17 @@
-import React, { useState } from "react";
-import { Flex, Center, Box } from "@chakra-ui/react";
-import Background from "../../components/Background/Background";
+import React from "react";
+import { Flex, Center, Box, Image } from "@chakra-ui/react";
+import ContentBg from "../../components/Background/ContentBg";
+import bgNo from "../../assets/images/bg-noAj.png";
+import arjaverse from "../../assets/images/Arjaverse.png";
 
 export default function ShowPage() {
   return (
-    <Background>
-      <div className="absolute z-50 left-0 top-0">
-        <div className="text-black">
-          <Center h={"calc(100vh - 80px)"}>show</Center>
-        </div>
+    <ContentBg src={bgNo.src}>
+      <div className="text-black">
+        <Center h={"calc(100vh - 80px)"}>
+          <Image src={arjaverse.src} height={"50rem"} zIndex="2" />
+        </Center>
       </div>
-    </Background>
+    </ContentBg>
   );
 }

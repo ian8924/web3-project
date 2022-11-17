@@ -1,10 +1,9 @@
 import React from "react";
-// 背景
-import Wave from "./Wave.js";
 import { Flex, Image } from "@chakra-ui/react";
 import bg from "../../assets/images/bg.png";
 
 export default function ContentBg(props) {
+  const { src } = props;
   return (
     <>
       <Flex
@@ -15,7 +14,7 @@ export default function ContentBg(props) {
         bgRepeat="no-repeat"
         bgPos="center"
         bgSize="100%"
-        bgImage={bg.src}
+        bgImage={src ? src : bg.src}
       >
         {props.children}
       </Flex>

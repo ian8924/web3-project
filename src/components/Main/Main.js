@@ -3,13 +3,14 @@ import React from "react";
 import { Flex, Center, Box } from "@chakra-ui/react";
 import { useRouter } from "next/router.js";
 import Background from "../Background/Background.js";
+import { motion } from "framer-motion";
+//TODO: add animation
 
 export default function Main() {
   const router = useRouter();
   const goPage = (page) => {
     router.push(page);
   };
-
   // test push
   return (
     <Background>
@@ -31,20 +32,9 @@ export default function Main() {
         width="30%"
         height="100px"
         bgColor="transparent"
-        alignItems="center"
-        justifyContent="center"
         mt="80px"
         zIndex="20"
-      >
-        <button
-          className="bg-[#FAC92E] p-3 w-full h-full rounded-md"
-          onClick={() => goPage("/mint")}
-        >
-          <Center className="text-[#425673] text-2xl font-semibold">
-            Connect Wallet
-          </Center>
-        </button>
-      </Flex>
+      ></Flex>
     </Background>
   );
 }

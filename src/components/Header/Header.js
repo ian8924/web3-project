@@ -19,7 +19,12 @@ export default function Header() {
       overflow="hidden"
       className="absolute z-50 w-full bg-white shadow-top h-20"
     >
-      <Flex gap={3} align="center">
+      <Flex
+        gap={3}
+        align="center"
+        onClick={() => goPage("/")}
+        cursor={"pointer"}
+      >
         <Image
           src={Logo.src}
           width={{ base: "60px", sm: "100px", md: "auto" }}
@@ -34,11 +39,15 @@ export default function Header() {
         </div>
       </Flex>
       <Spacer />
-      <Center gap={6}>
-        <Icons id={"medium"} width={8} height={8} />
-        <Icons id={"telegram"} width={8} height={8} />
-        <Icons id={"opensea"} width={8} height={8} fill={""} />
-        <Icons id={"discord"} width={8} height={8} />
+      <Center>
+        <button
+          className="bg-[#FAC92E] p-3 w-full h-full rounded-md"
+          onClick={() => goPage("/profile")}
+        >
+          <Center className="text-[#425673] text-2xl font-semibold">
+            Connect Wallet
+          </Center>
+        </button>
       </Center>
     </Flex>
   );
