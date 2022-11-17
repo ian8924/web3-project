@@ -3,6 +3,9 @@ import React from "react";
 import { Flex, Center, Box } from "@chakra-ui/react";
 import { useRouter } from "next/router.js";
 import Background from "../Background/Background.js";
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+
+
 
 export default function Main() {
   const router = useRouter();
@@ -36,14 +39,17 @@ export default function Main() {
         mt="80px"
         zIndex="20"
       >
-        <button
+        {/* <button
           className="bg-[#FAC92E] p-3 w-full h-full rounded-md"
           onClick={() => goPage("/mint")}
         >
           <Center className="text-[#425673] text-2xl font-semibold">
             Connect Wallet
           </Center>
-        </button>
+        </button> */}
+        <div className="btn-connect">
+          <ConnectButton />
+        </div>
       </Flex>
     </Background>
   );

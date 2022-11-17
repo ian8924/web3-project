@@ -73,6 +73,24 @@ h5 {
     text-stroke: 6px #425673;
 }
 
+
+.btn-connect {
+  button {
+    width: 230px !important;
+    height: 60px !important;
+    text-align: center !important;
+    // background-color: #FAC92E !important;
+    font-size: 24px !important;
+    & > div {
+      width: 100% !important;
+      height: 100% !important;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+}
+
 @keyframes animatedgradient {
   0% {
     background-position: 0% 50%;
@@ -100,5 +118,23 @@ h5 {
       -webkit-text-stroke: 6px #425673;
       text-stroke: 6px #425673;
   }
+
+
+.btn-connect {
+  button {
+    width: 230px !important;
+    height: 60px !important;
+    text-align: center !important;
+    // background-color: #FAC92E !important;
+    font-size: 24px !important;
+    & > div {
+      width: 100% !important;
+      height: 100% !important;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+}
 
 }
