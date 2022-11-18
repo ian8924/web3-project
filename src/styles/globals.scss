@@ -84,6 +84,9 @@ h5 {
 
 
 .btn-connect {
+  width: 100%;
+  display: flex;
+  justify-content: center;
   button {
     width: 230px !important;
     height: 60px !important;
