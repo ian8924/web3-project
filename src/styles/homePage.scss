@@ -26,6 +26,15 @@ body {
   max-height: 250px;
 }
 
+.waves3 {
+  position: relative;
+  width: 120%;
+  height: 80px;
+  margin-bottom: -7px; /*Fix for safari gap*/
+  min-height: 80px;
+  max-height: 80px;
+}
+
 .wave-bot {
   width: 100%;
   height: 500px;

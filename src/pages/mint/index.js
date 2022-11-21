@@ -1,26 +1,76 @@
 import React, { useState } from "react";
-import { Flex, Center, Box } from "@chakra-ui/react";
-import Background from "../../components/Background/Background";
+import { Flex, Center, Box, Image } from "@chakra-ui/react";
 import ContentBg from "../../components/Background/ContentBg";
+import Wave3 from "../../components/Background/Wave3";
+import pop from "../../assets/images/pop.png";
 
 export default function ProfilePage() {
   return (
     <ContentBg position="relative">
       <Box
         position="absolute"
-        top="100px"
+        top="70px"
         display="flex"
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
       >
         <Box
+          width="300px"
+          height="300px"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          borderRadius="50%"
+          marginBottom="30px"
+          position="relative"
+          // backgroundImage={pop.src}
+          // backgroundSize="contain"
+          overflow="hidden"
+          // padding='30px'
+        >
+          <Image
+            zIndex="1"
+            position="absolute"
+            width="100%"
+            height="100%"
+            src={pop.src}
+          ></Image>
+          <Box
+            color="#425673"
+            fontSize="40px"
+            zIndex="2"
+            fontWeight="700"
+            textAlign="center"
+            marginTop='-30px'
+          >
+            剩餘
+            <Box display="flex" alignItems="flex-end" marginTop="-30px">
+              <Box
+                className="strokeText"
+                data-Storke="20"
+                id="title"
+                fontSize="120px !important"
+                lineHeight="120px"
+              >
+                20
+              </Box>
+              <Box color="#425673" fontSize="24px" zIndex="2" fontWeight="700">
+                個
+              </Box>
+            </Box>
+          </Box>
+          <Box position="absolute" left="-20px" top={`calc(70% + ${-30}px)`} zIndex="0">
+            <Wave3></Wave3>
+          </Box>
+        </Box>
+        <Box
           as="button"
           borderRadius="45px"
-          border={{ base: "5px solid #425673", sm: "10px solid #425673"}}   
-          width={{ base: "150px", sm: "360px" }} 
-          height={{ base: "50px", sm: "90px" }} 
-          fontSize={{ base: "20px", sm: "30px" }} 
+          border={{ base: "5px solid #425673", sm: "10px solid #425673" }}
+          width={{ base: "150px", sm: "360px" }}
+          height={{ base: "50px", sm: "90px" }}
+          fontSize={{ base: "20px", sm: "30px" }}
           fontWeight="700"
           color="#425673"
           bg="#fff"
@@ -35,19 +85,25 @@ export default function ProfilePage() {
         borderRadius="lg"
         color="#425673"
         width={{ base: "90%", sm: "80%" }}
-        maxWidth='1100px'
+        maxWidth="1100px"
         position="absolute"
         bottom={{ base: "150px", sm: "100px" }}
         backgroundColor="rgba(255,255,255,.5)"
         display="flex"
         flexDirection="column"
         alignItems="center"
-        padding={{ base: "16px", sm: "50px 70px" }}  
+        padding={{ base: "16px", sm: "50px 70px" }}
       >
-        <Box fontSize={{ base: "24px", sm: "60px" }} marginBottom={{ base: "16px", sm: "24px" }}>
+        <Box
+          fontSize={{ base: "24px", sm: "60px" }}
+          marginBottom={{ base: "16px", sm: "24px" }}
+        >
           Zero-Knowledge rollup
         </Box>
-        <Box fontSize={{ base: "16px", sm: "24px" }} lineHeight={{ base: "24px", sm: "45px" }}>
+        <Box
+          fontSize={{ base: "16px", sm: "24px" }}
+          lineHeight={{ base: "24px", sm: "45px" }}
+        >
           1. 100 ＝＞ 1 ， 100筆資料打包成1筆上鏈，實現100個人
           free-mint，只要付一次 Gas <br />
           2. 大量的 MetaData 上鏈，包裝起來一次上鏈，降低所需的開發成本 <br />
