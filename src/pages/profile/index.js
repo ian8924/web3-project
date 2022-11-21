@@ -6,7 +6,7 @@ import ContentBg from "../../components/Background/ContentBg";
 export default function ProfilePage() {
   return (
     <ContentBg>
-      <Box className="text-" zIndex='5'>
+      <Box className="text-" zIndex="5">
         <div className="flex justify-around text-4xl w-full pt-10">
           userAddress
         </div>
@@ -15,7 +15,7 @@ export default function ProfilePage() {
             className="h-full w-3/5 py-10"
             src="https://www.w3schools.com"
             title="Profile NFT"
-          ></iframe>
+          />
         </Center>
       </Box>
     </ContentBg>
