@@ -36,18 +36,31 @@ export default function Main() {
         </div>
       </Box>
       <NoSSRWrapper>
-        <Flex
-          width="100%"
-          height="100px"
-          justifyContent="center"
-          bgColor="transparent"
-          mt={{ base: "35px", sm: "80px" }}
-          zIndex="20"
-        >
-          <div className="btn-connect">
-            <ConnectButton />
-          </div>
-        </Flex>
+        {address ? (
+          <>
+            <Flex
+              width="100%"
+              height="100px"
+              justifyContent="center"
+              bgColor="transparent"
+              mt={{ base: "35px", sm: "80px" }}
+              zIndex="20"
+            />
+          </>
+        ) : (
+          <Flex
+            width="100%"
+            height="100px"
+            justifyContent="center"
+            bgColor="transparent"
+            mt={{ base: "35px", sm: "80px" }}
+            zIndex="20"
+          >
+            <div className="btn-connect">
+              <ConnectButton />
+            </div>
+          </Flex>
+        )}
         {address ? (
           <Box
             display="flex"
@@ -64,12 +77,13 @@ export default function Main() {
               flexDirection={{ base: "column", sm: "row" }}
               justifyContent="center"
             >
-              <WaveButton fun={() => goPage("/profile")}>
-                My NFT
-              </WaveButton>
-              <WaveButton fun={() => goPage("/mint")}>
-                Go To Mint
-              </WaveButton>
+              <WaveButton fun={() => goPage("/profile")}>My NFT</WaveButton>
+              <WaveButton fun={() => goPage("/mint")}>Go To Mint</WaveButton>
+              <Box
+                display={{ base: "flex", sm: "none" }}
+              >
+                <WaveButton fun={() => goPage("/mint")}>Show Room</WaveButton>
+              </Box>
             </Box>
           </Box>
         ) : (
