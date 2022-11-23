@@ -4,11 +4,16 @@ import { Flex, Center, Box } from "@chakra-ui/react";
 import { useRouter } from "next/router.js";
 import Background from "../Background/Background.js";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import WaveButton from "../Button/WaveButton/WaveButton";
+
+import { useAccount } from "wagmi";
+import NoSSRWrapper from "../NoSSRWrapper";
 
 import { motion } from "framer-motion";
 //TODO: add animation
 
 export default function Main() {
+  const { address } = useAccount();
   const router = useRouter();
   const goPage = (page) => {
     router.push(page);
@@ -30,25 +35,61 @@ export default function Main() {
           Arjaverse!
         </div>
       </Box>
-      <Flex
-        width="30%"
-        height="100px"
-        bgColor="transparent"
-        mt="80px"
-        zIndex="20"
-      >
-        {/* <button
-          className="bg-[#FAC92E] p-3 w-full h-full rounded-md"
-          onClick={() => goPage("/mint")}
-        >
-          <Center className="text-[#425673] text-2xl font-semibold">
-            Connect Wallet
-          </Center>
-        </button> */}
-        <div className="btn-connect">
-          <ConnectButton />
-        </div>
-      </Flex>
+      <NoSSRWrapper>
+        {address ? (
+          <>
+            <Flex
+              width="100%"
+              height="100px"
+              justifyContent="center"
+              bgColor="transparent"
+              mt={{ base: "35px", sm: "80px" }}
+              zIndex="20"
+            />
+          </>
+        ) : (
+          <Flex
+            width="100%"
+            height="100px"
+            justifyContent="center"
+            bgColor="transparent"
+            mt={{ base: "35px", sm: "80px" }}
+            zIndex="20"
+          >
+            <div className="btn-connect">
+              <ConnectButton />
+            </div>
+          </Flex>
+        )}
+        {address ? (
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            width="100%"
+            marginTop={{ base: "5px", sm: "30px" }}
+            marginBottom={{ base: "20px", sm: "100px" }}
+          >
+            <Box
+              gap="4"
+              width={{ base: "80%", sm: "80%" }}
+              display={{ base: "flex", sm: "80px" }}
+              flexDirection={{ base: "column", sm: "row" }}
+              justifyContent="center"
+            >
+              <WaveButton fun={() => goPage("/profile")}>My NFT</WaveButton>
+              <WaveButton fun={() => goPage("/mint")}>Go To Mint</WaveButton>
+              <Box
+                display={{ base: "flex", sm: "none" }}
+              >
+                <WaveButton fun={() => goPage("/mint")}>Show Room</WaveButton>
+              </Box>
+            </Box>
+          </Box>
+        ) : (
+          ""
+        )}
+      </NoSSRWrapper>
     </Background>
   );
 }

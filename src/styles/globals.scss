@@ -134,19 +134,16 @@ h5 {
 
 .btn-connect {
   button {
-    width: 230px !important;
-    height: 60px !important;
+    width: 150px !important;
+    height: 40px !important;
     text-align: center !important;
     // background-color: #FAC92E !important;
-    font-size: 24px !important;
-    & > div {
-      width: 100% !important;
-      height: 100% !important;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
+    font-size: 16px !important;
   }
+}
+
+button {
+  white-space: nowrap;
 }
 
 }
