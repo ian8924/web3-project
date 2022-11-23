@@ -1,13 +1,19 @@
 import React from "react";
 import "../styles/globals.scss";
 import "../styles/homePage.scss";
+// rainbow-kit 設定
+import "@rainbow-me/rainbowkit/styles.css";
+import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
+import { alchemyProvider } from "wagmi/providers/alchemy";
+import { publicProvider } from "wagmi/providers/public";
+
 import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import Header from "../components/Header/Header";
 import Head from "next/head";
 import Logo from "../../src/assets/images/logo.ico";
-
 
 const emotionCache = createCache({
   key: "style",
@@ -28,50 +34,28 @@ const theme = extendTheme({
   colors,
 });
 
-
-// rainbow-kit 設定
-import '@rainbow-me/rainbowkit/styles.css';
-
-import {
-  getDefaultWallets,
-  RainbowKitProvider,
-} from '@rainbow-me/rainbowkit';
-import {
-  chain,
-  configureChains,
-  createClient,
-  WagmiConfig,
-} from 'wagmi';
-import { alchemyProvider } from 'wagmi/providers/alchemy';
-import { publicProvider } from 'wagmi/providers/public';
-
 const { chains, provider } = configureChains(
   [chain.mainnet, chain.goerli],
-  [
-    alchemyProvider({ apiKey: process.env.ALCHEMY_ID }),
-    publicProvider()
-  ]
+  [alchemyProvider({ apiKey: process.env.ALCHEMY_ID }), publicProvider()]
 );
 
 const { connectors } = getDefaultWallets({
-  appName: 'My RainbowKit App',
-  chains
+  appName: "My RainbowKit App",
+  chains,
 });
 
 const wagmiClient = createClient({
   autoConnect: true,
   connectors,
-  provider
-})
+  provider,
+});
 
 const myCustomTheme = {
   colors: {
-    connectButtonBackground: '#ccc',
-    connectButtonInnerBackground: '#ccc',
+    connectButtonBackground: "#ccc",
+    connectButtonInnerBackground: "#ccc",
   },
-}
-
-
+};
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -87,7 +71,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href={Logo.src} />
       </Head>
       <WagmiConfig client={wagmiClient}>
-        <RainbowKitProvider chains={chains} >
+        <RainbowKitProvider chains={chains}>
           <CacheProvider value={emotionCache}>
             <ChakraProvider theme={theme}>
               <Header />

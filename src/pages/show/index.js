@@ -1,7 +1,6 @@
 import React from "react";
 import { Center, Image } from "@chakra-ui/react";
 import arjaverse from "../../assets/images/Arjaverse.png";
-
 import arja from "../../assets/images/seagull/5.png";
 import arja2 from "../../assets/images/seagull/6.png";
 import ContentBg from "../../components/Background/ContentBg";
