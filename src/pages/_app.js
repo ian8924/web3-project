@@ -26,7 +26,7 @@ const theme = extendTheme({
     global: () => ({
       body: {
         bg: "",
-        color: "",
+        color: "black",
         fontFamily: "",
       },
     }),
