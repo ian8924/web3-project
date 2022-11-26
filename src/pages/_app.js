@@ -38,7 +38,7 @@ const { chains, provider } = configureChains(
   [chain.mainnet, chain.goerli],
   [
     alchemyProvider({ apiKey: "5Rbut6tuZaLXz2YsqwJ7Uj3TKtAVkinZ" }),
-    publicProvider(),
+    // publicProvider(),
   ]
 );
 
@@ -66,7 +66,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>Arjaverse!</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link
           href="https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;500;600;700&display=swap"
           rel="stylesheet"
