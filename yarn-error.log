@@ -1,20 +1,20 @@
 Arguments: 
-  /usr/local/bin/node /opt/homebrew/Cellar/yarn/1.22.19/libexec/bin/yarn.js add @chakra-ui/icons
+  C:\Program Files\nodejs\node.exe C:\Users\sa556\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
 
 PATH: 
-  /opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/opt/homebrew/sbin
+  C:\Users\sa556\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\sa556\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Users\sa556\AppData\Local\Microsoft\WindowsApps;C:\Users\sa556\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\sa556\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
 
 Yarn version: 
   1.22.19
 
 Node version: 
-  16.17.1
+  18.12.1
 
 Platform: 
-  darwin arm64
+  win32 x64
 
 Trace: 
-  Error: ENOENT: no such file or directory, copyfile '/Users/someryang/Library/Caches/Yarn/v6/npm-postcss-nested-6.0.0-1572f1984736578f360cffc7eb7dca69e30d1735-integrity/node_modules/postcss-nested/README.md' -> '/Users/someryang/web3-project/node_modules/tailwindcss/node_modules/postcss-nested/README.md'
+  Error: ENOENT: no such file or directory, copyfile 'C:\Users\sa556\AppData\Local\Yarn\Cache\v6\npm-glob-parent-6.0.2-6d237d99083950c79290f24c7642a3de9a28f9e3-integrity\node_modules\glob-parent\index.js' -> 'C:\Users\sa556\OneDrive\桌面\web3-project\node_modules\tailwindcss\node_modules\glob-parent\index.js'
 
 npm manifest: 
   {
