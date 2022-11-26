@@ -38,7 +38,7 @@ const { chains, provider } = configureChains(
   [chain.mainnet, chain.goerli],
   [
     alchemyProvider({ apiKey: "5Rbut6tuZaLXz2YsqwJ7Uj3TKtAVkinZ" }),
-    publicProvider(),
+    // publicProvider(),
   ]
 );
 
