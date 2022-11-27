@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Flex, Center, Box } from "@chakra-ui/react";
 import Background from "../../components/Background/Background";
 import ContentBg from "../../components/Background/ContentBg";
+import Alert from "../../components/Alert/Alert";
 
 export default function ProfilePage() {
   return (
@@ -15,6 +16,8 @@ export default function ProfilePage() {
           justify={"center"}
         >
           遊戲說明
+        <Alert>ss</Alert>
+
         </Flex>
         {/* //TODO: Skeleton before get NFT */}
         <Center h={"calc(100vh - 80px)"} w={"100vw"}>

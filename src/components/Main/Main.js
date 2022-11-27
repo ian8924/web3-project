@@ -1,24 +1,44 @@
-import React from "react";
+import React ,{useCallback}from "react";
 // 背景
-import { Flex, Center, Box } from "@chakra-ui/react";
+import { Flex, Box } from "@chakra-ui/react";
 import { useRouter } from "next/router.js";
 import Background from "../Background/Background.js";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import WaveButton from "../Button/WaveButton/WaveButton";
-
 import { useAccount } from "wagmi";
 import NoSSRWrapper from "../NoSSRWrapper";
-
 import { motion } from "framer-motion";
+import { useSign } from "../../Hooks/useSign.tsx";
+import Alert from "../Alert/Alert.js";
 //TODO: add animation
 
 export default function Main() {
-  const { address } = useAccount();
+  const { isConnected, address } = useAccount();
+  const { signTypedDataAsync: signAuth } = useSign();
+  //TODO check profile type
+
+  //call useSign 確認拿到簽章
+  const authUser = useCallback(async () => {
+      if (isConnected) {
+        try {
+          const sig = await signAuth();
+          if (sig) {
+            authenticate(sig);
+            setIsAuthenticated(true);
+          }
+        } catch (error) {
+          console.log('error', error);
+           //TODO:Alert
+        }
+      }
+  }, [isConnected, signAuth]);
+      
+
   const router = useRouter();
   const goPage = (page) => {
     router.push(page);
   };
-  // test push
+
   return (
     <Background>
       <Box
@@ -35,6 +55,7 @@ export default function Main() {
           Arjaverse!
         </div>
       </Box>
+      
       <NoSSRWrapper>
         {address ? (
           <>
@@ -78,11 +99,12 @@ export default function Main() {
               justifyContent="center"
             >
               <WaveButton fun={() => goPage("/profile")}>My NFT</WaveButton>
+              <WaveButton fun={() => authUser()}>Test</WaveButton>
               <WaveButton fun={() => goPage("/mint")}>Go To Mint</WaveButton>
               <Box
                 display={{ base: "flex", sm: "none" }}
               >
-                <WaveButton fun={() => goPage("/mint")}>Show Room</WaveButton>
+              <WaveButton fun={() => goPage("/mint")}>Show Room</WaveButton>
               </Box>
             </Box>
           </Box>

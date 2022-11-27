@@ -1,6 +1,6 @@
 import React from "react";
 import Icons from "../Icons/Icons";
-import { AlertType } from "./type";
+import { AlertType } from "./type.ts";
 
 const getThemeColor = (variant = AlertType.INFO) => {
   switch (variant) {

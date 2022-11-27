@@ -11,7 +11,7 @@ export default function ShowPage() {
       <div className="text-black w-full h-full">
         <div className="w-full">
           <Image width="100px" maxWidth="30%" src={arja2.src} />
-          <Alert variant></Alert>
+          {/* <Alert variant></Alert> */}
         </div>
         <Center>
           <Image src={arjaverse.src} height={"50rem"} zIndex="2" />
