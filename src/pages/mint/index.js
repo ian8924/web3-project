@@ -24,18 +24,9 @@ export default function ProfilePage() {
           borderRadius="50%"
           marginBottom="30px"
           position="relative"
-          // backgroundImage={pop.src}
-          // backgroundSize="contain"
           overflow="hidden"
-          // padding='30px'
+          border="15px solid #425673"
         >
-          <Image
-            zIndex="1"
-            position="absolute"
-            width="100%"
-            height="100%"
-            src={pop.src}
-          ></Image>
           <Box
             color="#425673"
             fontSize="40px"
