@@ -1,10 +1,37 @@
-import React, { useState } from "react";
-import { Flex, Center, Box, Image } from "@chakra-ui/react";
+import React, { useState, useCallback } from "react";
+import { Box } from "@chakra-ui/react";
 import ContentBg from "../../components/Background/ContentBg";
 import Wave3 from "../../components/Background/Wave3";
 import pop from "../../assets/images/pop.png";
+import { useSignMessage, useAccount } from "wagmi";
 
 export default function ProfilePage() {
+  const { isConnected } = useAccount();
+  const {
+    data,
+    signMessage,
+    signMessageAsync: signAuth,
+  } = useSignMessage({
+    message: "Mint Arjaverse NFT",
+  });
+  const [signData, setSignData] = useState();
+  //TODO check profile type
+
+  //call useSign 確認拿到簽章
+  const authUser = useCallback(async () => {
+    if (isConnected) {
+      try {
+        const sig = await signAuth();
+        if (sig) {
+          setSignData(sig);
+        }
+      } catch (error) {
+        console.log("error", error);
+        //TODO:Alert
+      }
+    }
+  }, [isConnected, signAuth]);
+
   return (
     <ContentBg position="relative">
       <Box
@@ -33,7 +60,7 @@ export default function ProfilePage() {
             zIndex="2"
             fontWeight="700"
             textAlign="center"
-            marginTop='-30px'
+            marginTop="-30px"
           >
             剩餘
             <Box display="flex" alignItems="flex-end" marginTop="-30px">
@@ -51,11 +78,17 @@ export default function ProfilePage() {
               </Box>
             </Box>
           </Box>
-          <Box position="absolute" left="-20px" top={`calc(70% + ${-30}px)`} zIndex="0">
+          <Box
+            position="absolute"
+            left="-20px"
+            top={`calc(70% + ${-30}px)`}
+            zIndex="0"
+          >
             <Wave3></Wave3>
           </Box>
         </Box>
         <Box
+          onClick={() => authUser()}
           as="button"
           borderRadius="45px"
           border={{ base: "5px solid #425673", sm: "10px solid #425673" }}
