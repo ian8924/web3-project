@@ -23,6 +23,7 @@
     "react-no-ssr": "1.1.0",
     "sass": "^1.55.0",
     "scss": "^0.2.4",
+    "swiper": "^8.4.5",
     "wagmi": "0.8.6"
   },
   "license": "MIT",
