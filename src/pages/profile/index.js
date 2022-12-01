@@ -8,14 +8,23 @@ import { getContract } from "../../hooks/useContract";
 export default function ProfilePage() {
   const [contractToken, setContractToken] = useState();
   const getData = useCallback(async () => {
-    const contract = await getContract();
-    const metadata = await contract
-// console.log("metadata",metadata)
+    const contract = await getContract()
     setContractToken(contract);
   }, []);
+  
+  const getTokenURI = useCallback(async () => {
+    const tokenURI = await contractToken?.tokenURI(1);
+    console.log(tokenURI);
+  }, [contractToken]);
+
   useEffect(() => {
     getData();
   }, []);
+  useEffect(() => {
+    if(contractToken){
+      getTokenURI();
+    }
+  }, [contractToken]);
   return (
     <ContentBg>
       <Box className="" zIndex="5">
