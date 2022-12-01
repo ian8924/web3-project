@@ -53,13 +53,6 @@ const wagmiClient = createClient({
   provider,
 });
 
-const myCustomTheme = {
-  colors: {
-    connectButtonBackground: "#ccc",
-    connectButtonInnerBackground: "#ccc",
-  },
-};
-
 function MyApp({ Component, pageProps }) {
   return (
     <>

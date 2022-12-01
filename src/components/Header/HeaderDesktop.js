@@ -1,26 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 // import Image from 'next/dist/client/image';
-import { useRouter } from "next/router";
-import { Center, Flex, Image, Box, useDisclosure } from "@chakra-ui/react";
+import { Center, Flex, Image, Box } from "@chakra-ui/react";
 import Logo from "../../assets/images/Logo.png";
 import HeaderButton from "./HeaderButton";
 import NoSSRWrapper from "../NoSSRWrapper";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { useAccount } from "wagmi";
 
-export default function Desktop() {
-  const router = useRouter();
-  const { address } = useAccount();
-
-  const goPage = (page) => {
-    if (page !== "/") {
-      if (!address) {
-        alert("請先連結錢包");
-        return;
-      }
-    }
-    router.push(page);
-  };
+export default function Desktop(props) {
+  const { goPage } = props;
 
   return (
     <>

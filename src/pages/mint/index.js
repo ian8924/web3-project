@@ -35,16 +35,18 @@ export default function ProfilePage() {
   return (
     <ContentBg position="relative">
       <Box
-        position="absolute"
-        top="70px"
+        className="where"
+        position="flex"
+        mt={{ base: "5", sm: "10" }}
         display="flex"
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
+        zIndex="100"
       >
         <Box
-          width="300px"
-          height="300px"
+          width={{ base: "200px", sm: "300px" }}
+          height={{ base: "200px", sm: "300px" }}
           display="flex"
           justifyContent="center"
           alignItems="center"
@@ -52,11 +54,11 @@ export default function ProfilePage() {
           marginBottom="30px"
           position="relative"
           overflow="hidden"
-          border="15px solid #425673"
+          border={{ base: "9px solid #425673", sm: "15px solid #425673" }}
         >
           <Box
             color="#425673"
-            fontSize="40px"
+            fontSize={{ base: "30px", sm: "40px" }}
             zIndex="2"
             fontWeight="700"
             textAlign="center"
@@ -66,10 +68,10 @@ export default function ProfilePage() {
             <Box display="flex" alignItems="flex-end" marginTop="-30px">
               <Box
                 className="strokeText"
-                data-Storke="20"
+                data-storke="20"
                 id="title"
-                fontSize="120px !important"
-                lineHeight="120px"
+                fontSize={{ base: "90px !important", sm: "120px !important" }}
+                lineHeight={{ base: "100px", sm: "120px" }}
               >
                 20
               </Box>
@@ -104,36 +106,34 @@ export default function ProfilePage() {
         <Box fontSize="36px" fontWeight="700" color="#425673">
           等待發放中...
         </Box>
-      </Box>
-      <Box
-        borderRadius="lg"
-        color="#425673"
-        width={{ base: "90%", sm: "80%" }}
-        maxWidth="1100px"
-        position="absolute"
-        bottom={{ base: "150px", sm: "100px" }}
-        backgroundColor="rgba(255,255,255,.5)"
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        padding={{ base: "16px", sm: "50px 70px" }}
-      >
         <Box
-          fontSize={{ base: "24px", sm: "60px" }}
-          marginBottom={{ base: "16px", sm: "24px" }}
+          borderRadius="lg"
+          color="#425673"
+          width={{ base: "90%", sm: "80%" }}
+          maxWidth="1100px"
+          backgroundColor="rgba(255,255,255,.5)"
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          padding={{ base: "16px", sm: "50px 70px" }}
         >
-          Zero-Knowledge rollup
-        </Box>
-        <Box
-          fontSize={{ base: "16px", sm: "24px" }}
-          lineHeight={{ base: "24px", sm: "45px" }}
-        >
-          1. 100 ＝＞ 1 ， 100筆資料打包成1筆上鏈，實現100個人
-          free-mint，只要付一次 Gas <br />
-          2. 大量的 MetaData 上鏈，包裝起來一次上鏈，降低所需的開發成本 <br />
-          3. 項目方的空投活動，不再需要一個一個傳送 <br />
-          4. 令使用者只需利用錢包的簽章，即可 mint NFT，實現 0 Gas fee
-          <br />
+          <Box
+            fontSize={{ base: "24px", sm: "60px" }}
+            marginBottom={{ base: "16px", sm: "24px" }}
+          >
+            Zero-Knowledge rollup
+          </Box>
+          <Box
+            fontSize={{ base: "16px", sm: "24px" }}
+            lineHeight={{ base: "24px", sm: "45px" }}
+          >
+            1. 100 ＝＞ 1 ， 100筆資料打包成1筆上鏈，實現100個人
+            free-mint，只要付一次 Gas <br />
+            2. 大量的 MetaData 上鏈，包裝起來一次上鏈，降低所需的開發成本 <br />
+            3. 項目方的空投活動，不再需要一個一個傳送 <br />
+            4. 令使用者只需利用錢包的簽章，即可 mint NFT，實現 0 Gas fee
+            <br />
+          </Box>
         </Box>
       </Box>
     </ContentBg>
