@@ -23,7 +23,6 @@ export default function ProfilePage() {
       try {
         const sig = await signAuth();
         if (sig) {
-          console.log("sig",sig)
           setSignData(sig);
         }
       } catch (error) {
