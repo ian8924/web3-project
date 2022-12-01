@@ -18,7 +18,7 @@ import Logo from "../../assets/images/Logo.png";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount, useNetwork } from "wagmi";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { useEns } from "../../hooks/useEns.tsx";
+import { useEns } from "../../hooks/useEns.js";
 
 export default function Mobile(props) {
   const { address } = useAccount();
@@ -50,10 +50,11 @@ export default function Mobile(props) {
         <DrawerContent bgColor="#CEE2D6">
           <DrawerHeader bgColor="#B5E0E9">
             {address ? (
-              <div className="flex justify-around text-darkBlue">
-                <div className="">{chain.name}</div>
-                <div className=" ">{ens ? ens : address.split(0, 2)}</div>
-              </div>
+              // <div className="flex justify-around text-darkBlue">
+              //   <div className="">{chain.name}</div>
+              //   <div className=" ">{ens ? ens : address.split(0, 2)}</div>
+              // </div>
+              <ConnectButton/>
             ) : (
               <div className="mt-4 flex justify-center text-xl">
                 <div className="rounded-2xl bg-[#0E76FD] p-3 text-white">
