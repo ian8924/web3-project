@@ -1,12 +1,15 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { Box } from "@chakra-ui/react";
 import ContentBg from "../../components/Background/ContentBg";
 import Wave3 from "../../components/Background/Wave3";
 import pop from "../../assets/images/pop.png";
 import { useSignMessage, useAccount } from "wagmi";
+import axios from "axios";
 
 export default function ProfilePage() {
   const { isConnected } = useAccount();
+  const { address } = useAccount();
+
   const {
     data,
     signMessage,
@@ -17,14 +20,49 @@ export default function ProfilePage() {
   const [signData, setSignData] = useState();
   //TODO check profile type
 
+  // 剩於數量
+  const [amount, setAmount] = useState(0);
+  const getAmout = ()=>{
+    axios.get('http://139.162.88.46/nft/mint-info').then(res=>{
+      setAmount(res.data.availableAmt)
+    })
+  }
+
+
+  const [allInfo, setAllInfo] = useState()
+  const getAllmint = ()=>{
+    axios.get('http://139.162.88.46/nft/getAll').then(res=>{
+      setAllInfo([...res.data.data])
+    })
+  }
+  useEffect(()=>{
+    getAmout()
+    getAllmint()
+  },[])
+
   //call useSign 確認拿到簽章
   const authUser = useCallback(async () => {
     if (isConnected) {
       try {
         const sig = await signAuth();
         if (sig) {
-          console.log("sig",sig)
           setSignData(sig);
+          axios({
+            method: "post",
+            url: "http://139.162.88.46/nft/mint",
+            //API要求的資料
+            data: {
+              address,
+              message: "Mint Arjaverse NFT",
+              signature: sig,
+            },
+          })
+            .then((res) => {
+              console.log(res);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
         }
       } catch (error) {
         console.log("error", error);
@@ -69,12 +107,12 @@ export default function ProfilePage() {
             <Box display="flex" alignItems="flex-end" marginTop="-30px">
               <Box
                 className="strokeText"
-                data-storke="20"
+                data-storke={amount}
                 id="title"
                 fontSize={{ base: "90px !important", sm: "120px !important" }}
                 lineHeight={{ base: "100px", sm: "120px" }}
               >
-                20
+                { amount }
               </Box>
               <Box color="#425673" fontSize="24px" zIndex="2" fontWeight="700">
                 個
@@ -128,6 +166,7 @@ export default function ProfilePage() {
             fontSize={{ base: "16px", sm: "24px" }}
             lineHeight={{ base: "24px", sm: "45px" }}
           >
+            { JSON.stringify(allInfo) }
             1. 100 ＝＞ 1 ， 100筆資料打包成1筆上鏈，實現100個人
             free-mint，只要付一次 Gas <br />
             2. 大量的 MetaData 上鏈，包裝起來一次上鏈，降低所需的開發成本 <br />
