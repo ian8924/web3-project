@@ -1,6 +1,5 @@
 import React from "react";
-import { Box, IconButton, Menu, MenuButton, MenuList } from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { Box } from "@chakra-ui/react";
 
 export default function HeaderButton(props) {
   const { title, onClick } = props;
