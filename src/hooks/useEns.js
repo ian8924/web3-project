@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
-import { useSignMessage ,useEnsName} from 'wagmi';
-import { chain } from 'wagmi';
+import {useEnsName} from 'wagmi';
 
 
 export const useEns = (address) => {

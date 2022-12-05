@@ -19,6 +19,7 @@ export default function ProfilePage() {
       decode(tokenURI.replace("data:application/json;base64,", ""))
     );
     setTokenURI(object.image);
+    // console.log("tokenURI",tokenURI)
   }, [contractToken]);
 
   useEffect(() => {
@@ -43,8 +44,6 @@ export default function ProfilePage() {
           {/* <Alert>ss</Alert> */}
         </Flex>
         {/* //TODO: Skeleton before get NFT */}
-        {console.log("s", contractToken)}
-        {/* {console.log("metadata",metadata)} */}
         <Center h={"calc(100vh - 80px)"} w={"100vw"}>
           <img width={"100vw"} height={"100vh"} src={tokenURI} />
         </Center>

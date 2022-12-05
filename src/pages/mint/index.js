@@ -8,9 +8,15 @@ import axios from "axios";
 import moment from "moment";
 
 export default function ProfilePage() {
-  const { isConnected } = useAccount();
-  const { address } = useAccount();
-
+  const { isConnected,address } = useAccount();
+  // 簽章資料
+  const [signData, setSignData] = useState();
+  // 截止/發放日期
+  const [deadline, setDeadline] = useState("");
+  // 剩於數量
+  const [amount, setAmount] = useState(0);
+  // 所有 mint 地址
+  const [allInfo, setAllInfo] = useState([]);
   const {
     data,
     signMessage,
@@ -18,20 +24,7 @@ export default function ProfilePage() {
   } = useSignMessage({
     message: "Mint Arjaverse NFT",
   });
-  // 簽章資料
-  const [signData, setSignData] = useState();
-  // 截止/發放日期
-  const [deadline, setDeadline] = useState("");
 
-  //TODO check profile type
-
-  useEffect(() => {
-    getAmout();
-    getAllmint();
-  }, []);
-
-  // 剩於數量
-  const [amount, setAmount] = useState(0);
   const getAmout = () => {
     axios.get("https://arjaverse.art/nft/mint-info").then((res) => {
       // setAmount(0);
@@ -40,15 +33,16 @@ export default function ProfilePage() {
       // setDeadline(0);
     });
   };
-
-  // 所有 mint 地址
-  const [allInfo, setAllInfo] = useState([]);
   const getAllmint = () => {
     axios.get("https://arjaverse.art/nft/getAll").then((res) => {
       setAllInfo([...res.data.data]);
     });
   };
-
+  //TODO check profile type
+  useEffect(() => {
+    getAmout();
+    getAllmint();
+  }, []);
 
   const getCurrentHasMint = () => {
     const idx = allInfo.findIndex((item) => {

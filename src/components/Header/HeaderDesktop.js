@@ -12,7 +12,6 @@ export default function Desktop(props) {
   return (
     <>
       <Flex
-        gap={{ base: "1", sm: "3" }}
         align="center"
         onClick={() => goPage("/")}
         cursor={"pointer"}
@@ -27,7 +26,6 @@ export default function Desktop(props) {
           data-storke="Arjaverse!"
           id="title"
           lineHeight="25px"
-          // display={{ base: "none", sm: "block" }}
         >
           Arjaverse!
         </Box>
