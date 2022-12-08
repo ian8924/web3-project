@@ -69,7 +69,7 @@ export default function Main() {
             >
               <WaveButton fun={() => goPage("/profile")}>My NFT</WaveButton>
               <WaveButton fun={() => goPage("/mint")}>Go To Mint</WaveButton>
-              <WaveButton fun={() => goPage("/mint")}>Show Room</WaveButton>
+              <WaveButton fun={() => goPage("/show")}>Show Room</WaveButton>
             </Box>
           </Box>
         ) : (
