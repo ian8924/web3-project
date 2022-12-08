@@ -28,7 +28,7 @@ export default function Background(props) {
         <Image
           src={cloud1.src}
           position="absolute"
-          width={{ base: "100px", sm: "auto", md: "auto" }}
+          width={{ base: "100px", sm: "100px", md: "auto" }}
           left="0"
           top={{ base: "30px", sm: "30px", md: "300px" }}
           zIndex="2"
@@ -37,9 +37,9 @@ export default function Background(props) {
         <Image
           src={cloud2.src}
           position="absolute"
-          width={{ base: "200px", sm: "auto", md: "auto" }}
-          right={{ base: "-20%", sm: "20%", md: "20%" }}
-          top={{ base: "180px", sm: "100px", md: "300px" }}
+          width={{ base: "200px", sm: "200px", md: "auto" }}
+          right={{ base: "-20%", sm: "-20%", md: "20%" }}
+          top={{ base: "180px", sm: "180px", md: "300px" }}
           zIndex="2"
         />
         {/* cloud 3 */}
@@ -48,14 +48,14 @@ export default function Background(props) {
           position="absolute"
           left="15%"
           top="650px"
-          display={{ base: "none", sm: "block", md: "block" }}
+          display={{ base: "none", sm: "none", md: "block" }}
         />
         <Image
           src={seagull2.src}
           position="absolute"
           right="200px"
           top="600px"
-          display={{ base: "none", sm: "block", md: "block" }}
+          display={{ base: "none", sm: "none", md: "block" }}
         />
         <Image
           width="200px"
@@ -63,7 +63,7 @@ export default function Background(props) {
           position="absolute"
           right="200px"
           top="650px"
-          display={{ base: "none", sm: "block", md: "block" }}
+          display={{ base: "none", sm: "none", md: "block" }}
         />
         {props.children}
         {/* sun */}

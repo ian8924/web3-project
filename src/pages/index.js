@@ -63,14 +63,13 @@ export default function Main() {
               gap="4"
               width={{ base: "80%", sm: "80%" }}
               display={{ base: "flex", sm: "80px" }}
-              flexDirection={{ base: "column", sm: "row" }}
+              alignItems={'center'}
+              flexDirection={{ base: "column", sm: "column" , md: "row" }}
               justifyContent="center"
             >
               <WaveButton fun={() => goPage("/profile")}>My NFT</WaveButton>
               <WaveButton fun={() => goPage("/mint")}>Go To Mint</WaveButton>
-              <Box display={{ base: "flex", sm: "none" }}>
-                <WaveButton fun={() => goPage("/mint")}>Show Room</WaveButton>
-              </Box>
+              <WaveButton fun={() => goPage("/mint")}>Show Room</WaveButton>
             </Box>
           </Box>
         ) : (
