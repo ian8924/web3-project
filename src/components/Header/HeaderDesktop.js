@@ -43,7 +43,7 @@ export default function Desktop(props) {
         </Center>
         <Center>
           <HeaderButton title="Opensea" onClick={() => {
-            window.open("https://opensea.com", "_blank");
+            window.open("https://testnets.opensea.io/collection/arjaverse-nft", "_blank");
           }} />
         </Center>
       </Flex>

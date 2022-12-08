@@ -160,7 +160,7 @@ export default function Mobile(props) {
                     color="cyan.800"
                     className="drop-shadow-xl"
                     onClick={() => {
-                      window.open("https://opensea.com", "_blank");
+                      window.open("https://testnets.opensea.io/collection/arjaverse-nft", "_blank");
                       onClose();
                     }}
                   >
