@@ -45,7 +45,12 @@ export default function Wave() {
           />
         </g>
       </svg>
-      <Box width='120%' height='800px' backgroundColor='rgba(87,136,160,.9)' marginTop='7px'></Box>
+      <Box
+        width="120%"
+        height="800px"
+        backgroundColor="rgba(87,136,160,.9)"
+        marginTop="7px"
+      ></Box>
     </>
   );
 }

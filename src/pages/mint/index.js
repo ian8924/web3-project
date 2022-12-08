@@ -8,7 +8,7 @@ import axios from "axios";
 import moment from "moment";
 
 export default function ProfilePage() {
-  const { isConnected,address } = useAccount();
+  const { isConnected, address } = useAccount();
   // 簽章資料
   const [signData, setSignData] = useState();
   // 截止/發放日期
@@ -69,17 +69,17 @@ export default function ProfilePage() {
             },
           })
             .then((res) => {
-              if(res.data.msg === 'Minted successfully') {
-                alert ('成功領取，請等候發放')
+              if (res.data.msg === "Minted successfully") {
+                alert("成功領取，請等候發放");
               }
             })
             .catch((err) => {
               console.log(err);
             })
-            .finally(()=>{
+            .finally(() => {
               getAmout();
               getAllmint();
-            })
+            });
         }
       } catch (error) {
         console.log("error", error);
@@ -146,9 +146,8 @@ export default function ProfilePage() {
           </Box>
         </Box>
         {/* 此帳號是否已經mint */}
-        {getCurrentHasMint() ? 
-        // 是否有過deadline
-        (
+        {getCurrentHasMint() ? (
+          // 是否有過deadline
           moment().valueOf() > parseInt(deadline) ? (
             <Box
               fontSize={{ base: "50px", sm: "50px" }}
@@ -180,7 +179,7 @@ export default function ProfilePage() {
             height={{ base: "50px", sm: "90px" }}
             fontSize={{ base: "20px", sm: "30px" }}
             fontWeight="700"
-            marginBottom='30px'
+            marginBottom="30px"
             color="#425673"
             bg="#fff"
           >

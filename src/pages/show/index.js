@@ -205,8 +205,8 @@ export default function ShowPage() {
               ballImgSrc={balls[ballId - 1].src}
               decorationImgSrc={decorations[decorationId - 1].src}
               eyeImgSrc={eyes[eyeId - 1].src}
-              effectImgSrc={effects[effectId -1].src}
-              bgImgSrc={backgrounds[backgroundId -1].src}
+              effectImgSrc={effects[effectId - 1].src}
+              bgImgSrc={backgrounds[backgroundId - 1].src}
             />
           </Flex>
         </Grid>

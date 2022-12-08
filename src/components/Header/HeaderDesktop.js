@@ -11,11 +11,7 @@ export default function Desktop(props) {
 
   return (
     <>
-      <Flex
-        align="center"
-        onClick={() => goPage("/")}
-        cursor={"pointer"}
-      >
+      <Flex align="center" onClick={() => goPage("/")} cursor={"pointer"}>
         <Image
           src={Logo.src}
           width={{ base: "50px", sm: "60px", md: "auto" }}

@@ -11,7 +11,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 export default function SwiperItem(props) {
-  const { options ,triggle } = props;
+  const { options, triggle } = props;
 
   return (
     <Flex width={"200px"} height={"200px"} justifyContent={"center"}>
@@ -20,7 +20,7 @@ export default function SwiperItem(props) {
         modules={[Navigation]}
         navigation={true}
         onActiveIndexChange={(index) => {
-            triggle(index.activeIndex + 1);
+          triggle(index.activeIndex + 1);
         }}
       >
         {options.map((item, index) => (

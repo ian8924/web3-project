@@ -7,7 +7,7 @@ const useNFT = (_address) => {
   const [nfts, setNfts] = useState([]);
 
   useEffect(() => {
-    fetch('https://api.opensea.io/api/v1/')
+    fetch("https://api.opensea.io/api/v1/");
 
     fetch(
       `https://api.opensea.io/api/v1/assets?owner=${addr}&order_direction=desc&limit=1`,

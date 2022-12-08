@@ -1,4 +1,4 @@
-import React, { useState }  from "react";
+import React, { useState } from "react";
 // import Image from 'next/dist/client/image';
 import { Flex } from "@chakra-ui/react";
 import Mobile from "./HeaderMobile";
