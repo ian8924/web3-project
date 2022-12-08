@@ -1,9 +1,10 @@
 import React from "react";
 // 背景
 import Wave from "./Wave.js";
-import { Flex, Image } from "@chakra-ui/react";
+import { Flex, Image ,Box } from "@chakra-ui/react";
 // import arja from "../../assets/svg/arja.png";
 import arja from "../../assets/arja.png";
+// import arja from "../../assets/svg/arja.png";
 import cloud1 from "../../assets/images/clouds/0.png";
 import cloud2 from "../../assets/images/clouds/1.png";
 import seagull1 from "../../assets/images/seagull/4.png";
@@ -15,6 +16,7 @@ export default function Background(props) {
       <Flex
         className="dashboard "
         height={{ base: "1100px", sm: "1100px", md: "1200px" }}
+        minHeight={{ base: "100vh" }}
         position="relative"
         textAlign="center"
         overflow="hidden"
@@ -28,7 +30,7 @@ export default function Background(props) {
         <Image
           src={cloud1.src}
           position="absolute"
-          width={{ base: "100px", sm: "auto", md: "auto" }}
+          width={{ base: "100px", sm: "100px", md: "auto" }}
           left="0"
           top={{ base: "30px", sm: "30px", md: "300px" }}
           zIndex="2"
@@ -37,9 +39,9 @@ export default function Background(props) {
         <Image
           src={cloud2.src}
           position="absolute"
-          width={{ base: "200px", sm: "auto", md: "auto" }}
-          right={{ base: "-20%", sm: "20%", md: "20%" }}
-          top={{ base: "180px", sm: "100px", md: "300px" }}
+          width={{ base: "200px", sm: "200px", md: "auto" }}
+          right={{ base: "-20%", sm: "-20%", md: "20%" }}
+          top={{ base: "180px", sm: "180px", md: "300px" }}
           zIndex="2"
         />
         {/* cloud 3 */}
@@ -48,14 +50,14 @@ export default function Background(props) {
           position="absolute"
           left="15%"
           top="650px"
-          display={{ base: "none", sm: "block", md: "block" }}
+          display={{ base: "none", sm: "none", md: "block" }}
         />
         <Image
           src={seagull2.src}
           position="absolute"
           right="200px"
           top="600px"
-          display={{ base: "none", sm: "block", md: "block" }}
+          display={{ base: "none", sm: "none", md: "block" }}
         />
         <Image
           width="200px"
@@ -63,7 +65,7 @@ export default function Background(props) {
           position="absolute"
           right="200px"
           top="650px"
-          display={{ base: "none", sm: "block", md: "block" }}
+          display={{ base: "none", sm: "none", md: "block" }}
         />
         {props.children}
         {/* sun */}
@@ -101,7 +103,7 @@ export default function Background(props) {
           />
         </Flex>
         {/* 海豹 */}
-        <Image
+        {/* <Image
           width={{ base: "400px", sm: "90%", md: "60%" }}
           src={arja.src}
           alt="Dan Abramov"
@@ -109,7 +111,19 @@ export default function Background(props) {
           marginLeft={{ base: "auto", sm: "auto", md: "auto" }}
           marginRight={{ base: "auto", sm: "auto", md: "auto" }}
           transform={{ base: "translateX(10%)", sm: "translateX(10%)", md: "translateX(10%)" }}
-        />
+        /> */}
+        <Box
+          width={{base: "400px", sm: "400px", md: "auto"}}
+          height={{base: "400px", sm: "400px", md: "auto"}}
+          marginBottom={{ base: "-320px", sm: "-320px", md: "-550px" }}
+          marginLeft={{ base: "300px" }}
+        >
+          <Image
+            width={{ base: "400px", sm: "400px", md: "auto" }}
+            src={arja.src}
+            alt="Dan Abramov"
+          />
+        </Box>
         {/* 海浪 */}
         <Wave />
         <div className="wave-bot z-20"></div>
