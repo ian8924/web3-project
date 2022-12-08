@@ -1,11 +1,11 @@
 import React from "react";
 import { Flex, Box } from "@chakra-ui/react";
 import { useRouter } from "next/router.js";
-import Background from "../Background/Background.js";
+import Background from "../components/Background/Background";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import WaveButton from "../Button/WaveButton/WaveButton";
+import WaveButton from "../components/Button/WaveButton/WaveButton";
 import { useAccount } from "wagmi";
-import NoSSRWrapper from "../NoSSRWrapper";
+import NoSSRWrapper from "../components/NoSSRWrapper";
 import { motion } from "framer-motion";
 //TODO: add animation
 

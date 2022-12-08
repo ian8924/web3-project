@@ -92,7 +92,7 @@ body {
 @media (max-width: 768px) {
 
   .dashboard {
-    height: 1100px;
+    min-height: 100vh;
   }
 
   .waves {
