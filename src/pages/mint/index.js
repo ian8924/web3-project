@@ -187,7 +187,7 @@ export default function ProfilePage() {
           </Box>
         ) : (
           <Box
-            fontSize={{ base: "50px", sm: "50px" }}
+            fontSize={{ base: "30px", sm: "50px" }}
             fontWeight="700"
             marginBottom="20px"
             color="red"
