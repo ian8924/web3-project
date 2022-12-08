@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "post-update": "yarn upgrade --latest",
-    "pm2": "pm2 start npm --name fontend -- run start -- -p 3000"
+    "pm2": "pm2 delete fontend && pm2 start npm --name fontend -- run start -- -p 3000"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.12",
