@@ -26,7 +26,7 @@ export default function ProfilePage() {
   });
 
   const getAmout = () => {
-    axios.get("https://arjaverse.art/nft/mint-info").then((res) => {
+    axios.get("https://api.arjaverse.art/nft/mint-info").then((res) => {
       // setAmount(0);
       setAmount(res.data.availableAmt);
       setDeadline(res.data.deadline);
@@ -34,7 +34,7 @@ export default function ProfilePage() {
     });
   };
   const getAllmint = () => {
-    axios.get("https://arjaverse.art/nft/getAll").then((res) => {
+    axios.get("https://api.arjaverse.art/nft/getAll").then((res) => {
       setAllInfo([...res.data.data]);
     });
   };
@@ -60,7 +60,7 @@ export default function ProfilePage() {
           setSignData(sig);
           axios({
             method: "post",
-            url: "https://arjaverse.art/nft/mint",
+            url: "https://api.arjaverse.art/nft/mint",
             //API要求的資料
             data: {
               address,
