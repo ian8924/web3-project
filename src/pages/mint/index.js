@@ -60,7 +60,7 @@ export default function ProfilePage() {
           setSignData(sig);
           axios({
             method: "post",
-            url: "http://139.162.88.46/nft/mint",
+            url: "https://arjaverse.art/nft/mint",
             //API要求的資料
             data: {
               address,

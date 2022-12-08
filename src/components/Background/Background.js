@@ -2,7 +2,8 @@ import React from "react";
 // 背景
 import Wave from "./Wave.js";
 import { Flex, Image } from "@chakra-ui/react";
-import arja from "../../assets/svg/arja.png";
+// import arja from "../../assets/svg/arja.png";
+import arja from "../../assets/arja.png";
 import cloud1 from "../../assets/images/clouds/0.png";
 import cloud2 from "../../assets/images/clouds/1.png";
 import seagull1 from "../../assets/images/seagull/4.png";
@@ -101,15 +102,17 @@ export default function Background(props) {
         </Flex>
         {/* 海豹 */}
         <Image
-          width={{ base: "400px", sm: "auto", md: "auto" }}
+          width={{ base: "400px", sm: "90%", md: "60%" }}
           src={arja.src}
           alt="Dan Abramov"
-          marginBottom={{ base: "-400px", sm: "-550px", md: "-550px" }}
-          marginLeft={{ base: "300", sm: "", md: "" }}
+          marginBottom={{ base: "-400px", sm: "-550px", md: "-350px" }}
+          marginLeft={{ base: "auto", sm: "auto", md: "auto" }}
+          marginRight={{ base: "auto", sm: "auto", md: "auto" }}
+          transform={{ base: "translateX(10%)", sm: "translateX(10%)", md: "translateX(10%)" }}
         />
         {/* 海浪 */}
         <Wave />
-        <div className="wave-bot"></div>
+        <div className="wave-bot z-20"></div>
       </Flex>
     </>
   );
