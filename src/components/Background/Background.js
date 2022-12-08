@@ -113,19 +113,20 @@ export default function Background(props) {
           transform={{ base: "translateX(10%)", sm: "translateX(10%)", md: "translateX(10%)" }}
         /> */}
         <Box
-          width={{base: "400px", sm: "400px", md: "auto"}}
+          width={{base: "400px", sm: "80%", md: "auto"}}
           height={{base: "400px", sm: "400px", md: "auto"}}
-          marginBottom={{ base: "-320px", sm: "-320px", md: "-550px" }}
-          marginLeft={{ base: "300px" }}
+          marginBottom={{ base: "-320px", sm: "-35%", md: "-550px" }}
+          marginLeft={{ base: "300px", sm: '0' }}
+          zIndex="1"
         >
           <Image
-            width={{ base: "400px", sm: "400px", md: "auto" }}
+            width={{ base: "400px", sm: "100%", md: "auto" }}
             src={arja.src}
             alt="Dan Abramov"
           />
         </Box>
         {/* 海浪 */}
-        <Wave />
+        <Wave className="z-20"/>
         <div className="wave-bot z-20"></div>
       </Flex>
     </>
