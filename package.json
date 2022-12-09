@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
+    "export": "next build && next export",
     "build": "next build",
-    "start": "next start",
-    "post-update": "yarn upgrade --latest"
+    "start": "next start -p 3000",
+    "post-update": "yarn upgrade --latest",
+    "pm2": "pm2 delete fontend && pm2 start npm --name fontend -- run start -- -p 3000"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.12",

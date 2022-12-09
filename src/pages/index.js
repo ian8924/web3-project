@@ -1,8 +1,8 @@
 import React from "react";
 import { Flex, Box } from "@chakra-ui/react";
-import { useRouter } from "next/router.js";
-import Background from "../components/Background/Background";
+import { useRouter } from "next/router";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import Background from "../components/Background/Background";
 import WaveButton from "../components/Button/WaveButton/WaveButton";
 import { useAccount } from "wagmi";
 import NoSSRWrapper from "../components/NoSSRWrapper";
@@ -22,7 +22,7 @@ export default function Main() {
         className="titles"
         fontWeight={"semibold"}
         fontSize={{ base: "60px", sm: "60px", md: "120px" }}
-        marginTop={{ base: "100px", sm: "100px", md: "200px" }}
+        marginTop={{ base: "100px", sm: "70px", md: "70px" }}
         lineHeight={{ base: "70px", sm: "70px", md: "100px" }}
         color="#425673"
         zIndex="3"
@@ -39,7 +39,7 @@ export default function Main() {
           height="100px"
           justifyContent="center"
           bgColor="transparent"
-          mt={{ base: "35px", sm: "80px" }}
+          mt={{ base: "35px", sm: "40px" }}
           zIndex="20"
         >
           {address ? (
@@ -66,6 +66,7 @@ export default function Main() {
               alignItems={'center'}
               flexDirection={{ base: "column", sm: "column" , md: "row" }}
               justifyContent="center"
+              zIndex={20}
             >
               <WaveButton fun={() => goPage("/profile")}>My NFT</WaveButton>
               <WaveButton fun={() => goPage("/mint")}>Go To Mint</WaveButton>

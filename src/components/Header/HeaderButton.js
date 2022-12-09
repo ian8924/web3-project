@@ -11,7 +11,7 @@ export default function HeaderButton(props) {
       justifyContent={"center"}
       borderRadius="45px"
       border="3px solid #425673"
-      width="170px"
+      width="140px"
       height="35px"
       fontSize="19px"
       fontWeight="500"

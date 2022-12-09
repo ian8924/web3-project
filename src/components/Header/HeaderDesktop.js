@@ -41,6 +41,11 @@ export default function Desktop(props) {
         <Center>
           <HeaderButton title="ShowRoom" onClick={() => goPage("/show")} />
         </Center>
+        <Center>
+          <HeaderButton title="Opensea" onClick={() => {
+            window.open("https://testnets.opensea.io/collection/arjaverse-nft", "_blank");
+          }} />
+        </Center>
       </Flex>
       <Flex display={{ base: "none", lg: "flex" }}>
         <NoSSRWrapper>

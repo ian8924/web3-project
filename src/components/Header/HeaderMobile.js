@@ -153,6 +153,22 @@ export default function Mobile(props) {
                     ShowRoom
                   </Button>
                 </Center>
+                <Center h={"50px"}>
+                  <Button
+                    width={"100%"}
+                    bgColor="#B5E0E9"
+                    color="cyan.800"
+                    className="drop-shadow-xl"
+                    onClick={() => {
+                      window.open("https://testnets.opensea.io/collection/arjaverse-nft", "_blank");
+                      onClose();
+                    }}
+                  >
+                    Opensea
+                  </Button>
+                </Center>
+
+                
               </div>
             ) : (
               <></>
