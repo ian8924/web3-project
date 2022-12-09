@@ -70,7 +70,37 @@ h5 {
     position: absolute;
     z-index: -1;
     -webkit-text-stroke: 6px #425673;
-    text-stroke: 6px #425673;
+}
+.headerText {
+  color: rgba(250, 201, 46, 1);
+  z-index: 4;
+}
+.headerText::before {
+    content: attr(data-storke);
+    position: absolute;
+    z-index: -1;
+    -webkit-text-stroke: 3px #425673;
+}
+
+
+.btn-connect {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  button {
+    width: 230px !important;
+    height: 60px !important;
+    text-align: center !important;
+    // background-color: #FAC92E !important;
+    font-size: 24px !important;
+    & > div {
+      width: 100% !important;
+      height: 100% !important;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
 }
 
 @keyframes animatedgradient {
@@ -101,4 +131,34 @@ h5 {
       text-stroke: 6px #425673;
   }
 
+
+.btn-connect {
+  button {
+    width: 150px !important;
+    height: 40px !important;
+    text-align: center !important;
+    // background-color: #FAC92E !important;
+    font-size: 16px !important;
+  }
+}
+
+button {
+  white-space: nowrap;
+}
+
+}
+@media (max-width: 1355px) { 
+  .strokeText {
+    left: 0;
+    position: relative;
+    color: rgba(250, 201, 46, 1);
+    z-index: 4;
+    font-size:24px;
+  }
+  .strokeText::before {
+      content: attr(data-storke);
+      position: absolute;
+      z-index: -1;
+      -webkit-text-stroke: 5px #425673;
+  }
 }

@@ -1,7 +1,7 @@
 import React from "react";
-import { Flex, Button, Image, Box } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 
-export default function Main() {
+export default function Button() {
   return (
     <Button width={"full"} height={"full"}>
       Connect Wallet
