@@ -150,7 +150,7 @@ export default function ProfilePage() {
           // 是否有過deadline
           moment().valueOf() > parseInt(deadline) ? (
             <Box
-              fontSize={{ base: "50px", sm: "50px" }}
+              fontSize={{ base: "30px", sm: "50px" }}
               fontWeight="700"
               marginBottom="20px"
               color="red"
@@ -159,7 +159,7 @@ export default function ProfilePage() {
             </Box>
           ) : (
             <Box
-              fontSize="36px"
+              ontSize={{ base: "30px", sm: "50px" }}
               fontWeight="700"
               color="#425673"
               textAlign="center"
@@ -187,7 +187,7 @@ export default function ProfilePage() {
           </Box>
         ) : (
           <Box
-            fontSize={{ base: "50px", sm: "50px" }}
+            fontSize={{ base: "30px", sm: "50px" }}
             fontWeight="700"
             marginBottom="20px"
             color="red"

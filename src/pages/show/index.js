@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import { Grid, Image, Flex } from "@chakra-ui/react";
+import {
+  Grid,
+  Image,
+  Box,
+  Flex,
+  Tabs,
+  Tab,
+  TabList,
+  TabPanels,
+  TabPanel,
+} from "@chakra-ui/react";
 import ContentBg from "../../components/Background/ContentBg";
 import SwiperItem from "../../components/Show/Swiper";
 import ShowImage from "../../components/Show/ShowImage";
@@ -133,84 +143,281 @@ export default function ShowPage() {
   const [decorationId, setDecorationId] = useState(1);
   const [effectId, setEffectId] = useState(1);
 
+  const setB = (ID) => {
+    setBodyId(ID);
+  };
+
   return (
     <ContentBg seal={false}>
-      <div className="h-full w-full text-black">
-        <Flex
+      <Flex
+        width={"100%"}
+        justifyContent={"flex-start"}
+        alignItems={"center"}
+        color={"#425673"}
+        fontWeight={700}
+        fontSize={"40px"}
+        marginTop={{ base: "20px", sm: "20px", md: "50px" }}
+        marginBottom={"50px"}
+        flexDirection={"column"}
+      >
+        展示區
+        <Box
+          fontSize={"16px"}
+          backgroundColor="rgba(42,56,73,.6)"
+          color="white"
+          padding="10px"
+          borderRadius="10px"
+          marginTop={'16px'}
+        >
+          可隨意切換物件展示各種造型
+        </Box>
+        {/* 電腦版 */}
+        <Box
           width={"100%"}
-          justifyContent={"center"}
-          color={"#425673"}
-          fontWeight={700}
-          fontSize={"40px"}
-          marginTop={"50px"}
-          marginBottom={"50px"}
+          color={"black"}
+          marginTop={"80px"}
+          display={{ base: "none", md: "none", md: "block" }}
         >
-          展示區
-        </Flex>
-        <Grid
-          gridTemplateColumns={{
-            base: "1fr auto 1fr",
-          }}
-          gridTemplateRows={{
-            base: "1fr auto 1fr",
-          }}
-          gridTemplateAreas={{
-            base: `'body1 showResult body4' 'body2 showResult body5' 'body3 showResult body6'`,
-          }}
-          gap={4}
-        >
-          <Flex gridArea="body1" justifyContent={"center"} textAlign="center">
-            <Flex flexDirection="column" fontSize="20px">
-              身體 {bodyId}
-              <SwiperItem options={bodys} triggle={setBodyId} />
-            </Flex>
-          </Flex>
-          <Flex gridArea="body2" justifyContent={"center"} textAlign="center">
-            <Flex flexDirection="column" fontSize="20px">
-              球 {ballId}
-              <SwiperItem options={balls} triggle={setBallId} />
-            </Flex>
-          </Flex>
-          <Flex gridArea="body3" justifyContent={"center"} textAlign="center">
-            <Flex flexDirection="column" fontSize="20px">
-              眼睛 {eyeId}
-              <SwiperItem options={eyes} triggle={setEyeId} />
-            </Flex>
-          </Flex>
-          <Flex gridArea="body4" justifyContent={"center"} textAlign="center">
-            <Flex flexDirection="column" fontSize="20px">
-              背景 {backgroundId}
-              <SwiperItem options={backgrounds} triggle={setBackgroundId} />
-            </Flex>
-          </Flex>
-          <Flex gridArea="body5" justifyContent={"center"} textAlign="center">
-            <Flex flexDirection="column" fontSize="20px">
-              配件 {decorationId}
-              <SwiperItem options={decorations} triggle={setDecorationId} />
-            </Flex>
-          </Flex>
-          <Flex gridArea="body6" justifyContent={"center"} textAlign="center">
-            <Flex flexDirection="column" fontSize="20px">
-              特效 {effectId}
-              <SwiperItem options={effects} triggle={setEffectId} />
-            </Flex>
-          </Flex>
-          <Flex
-            gridArea="showResult"
-            justifyContent={"center"}
-            textAlign="center"
+          <Grid
+            gridTemplateColumns={{
+              base: "1fr auto 1fr",
+            }}
+            gridTemplateRows={{
+              base: "1fr auto 1fr",
+            }}
+            gridTemplateAreas={{
+              base: `'body1 showResult body4' 'body2 showResult body5' 'body3 showResult body6'`,
+            }}
+            gap={4}
           >
-            <ShowImage
-              bodyImgSrc={bodys[bodyId - 1].src}
-              ballImgSrc={balls[ballId - 1].src}
-              decorationImgSrc={decorations[decorationId - 1].src}
-              eyeImgSrc={eyes[eyeId - 1].src}
-              effectImgSrc={effects[effectId - 1].src}
-              bgImgSrc={backgrounds[backgroundId - 1].src}
-            />
-          </Flex>
-        </Grid>
-      </div>
+            <Flex gridArea="body1" justifyContent={"center"} textAlign="center">
+              <Flex flexDirection="column" fontSize="20px">
+                身體 {bodyId}
+                <SwiperItem options={bodys} triggle={setBodyId} />
+              </Flex>
+            </Flex>
+            <Flex gridArea="body2" justifyContent={"center"} textAlign="center">
+              <Flex flexDirection="column" fontSize="20px">
+                球 {ballId}
+                <SwiperItem options={balls} triggle={setBallId} />
+              </Flex>
+            </Flex>
+            <Flex gridArea="body3" justifyContent={"center"} textAlign="center">
+              <Flex flexDirection="column" fontSize="20px">
+                眼睛 {eyeId}
+                <SwiperItem options={eyes} triggle={setEyeId} />
+              </Flex>
+            </Flex>
+            <Flex gridArea="body4" justifyContent={"center"} textAlign="center">
+              <Flex flexDirection="column" fontSize="20px">
+                背景 {backgroundId}
+                <SwiperItem options={backgrounds} triggle={setBackgroundId} />
+              </Flex>
+            </Flex>
+            <Flex gridArea="body5" justifyContent={"center"} textAlign="center">
+              <Flex flexDirection="column" fontSize="20px">
+                配件 {decorationId}
+                <SwiperItem options={decorations} triggle={setDecorationId} />
+              </Flex>
+            </Flex>
+            <Flex gridArea="body6" justifyContent={"center"} textAlign="center">
+              <Flex flexDirection="column" fontSize="20px">
+                特效 {effectId}
+                <SwiperItem options={effects} triggle={setEffectId} />
+              </Flex>
+            </Flex>
+            <Flex
+              gridArea="showResult"
+              justifyContent={"center"}
+              textAlign="center"
+            >
+              <ShowImage
+                bodyImgSrc={bodys[bodyId - 1].src}
+                ballImgSrc={balls[ballId - 1].src}
+                decorationImgSrc={decorations[decorationId - 1].src}
+                eyeImgSrc={eyes[eyeId - 1].src}
+                effectImgSrc={effects[effectId - 1].src}
+                bgImgSrc={backgrounds[backgroundId - 1].src}
+              />
+            </Flex>
+          </Grid>
+        </Box>
+        {/* 手機版 */}
+        <Flex
+          display={{ base: "flex", sm: "flex", md: "none" }}
+          flexDirection={"column"}
+          marginTop={{ base: "20px", sm: "20px", md: "50px" }}
+          alignItems="center"
+          width="100%"
+          padding="20px 10px"
+        >
+          <ShowImage
+            bodyImgSrc={bodys[bodyId - 1].src}
+            ballImgSrc={balls[ballId - 1].src}
+            decorationImgSrc={decorations[decorationId - 1].src}
+            eyeImgSrc={eyes[eyeId - 1].src}
+            effectImgSrc={effects[effectId - 1].src}
+            bgImgSrc={backgrounds[backgroundId - 1].src}
+          />
+          <Tabs
+            width={"100%"}
+            marginTop={"20px"}
+            colorScheme="white"
+            variant="colorful"
+            color={"white"}
+            backgroundColor="rgba(57,57,57,.6)"
+            borderRadius={"10px"}
+          >
+            <TabList justifyContent={"center"} width="100%" padding={"8px 0"}>
+              <Tab fontSize={"16px"} flex="1">
+                身體
+              </Tab>
+              <Tab fontSize={"16px"} flex="1">
+                球
+              </Tab>
+              <Tab fontSize={"16px"} flex="1">
+                眼睛
+              </Tab>
+              <Tab fontSize={"16px"} flex="1">
+                背景
+              </Tab>
+              <Tab fontSize={"16px"} flex="1">
+                配件
+              </Tab>
+              <Tab fontSize={"16px"} flex="1">
+                特效
+              </Tab>
+            </TabList>
+
+            <TabPanels>
+              <TabPanel>
+                <Flex
+                  width={"auto"}
+                  flexWrap={"wrap"}
+                  justifyContent="flex-start"
+                >
+                  {bodys.map((i) => (
+                    <Image
+                      src={i.src}
+                      width={"33%"}
+                      height={"auto"}
+                      border={"2px solid red"}
+                      marginTop="10px"
+                      cursor="pointer"
+                      borderColor={bodyId === i.id ? "red" : "transparent"}
+                      onClick={() => setBodyId(i.id)}
+                    ></Image>
+                  ))}
+                </Flex>
+              </TabPanel>
+              <TabPanel>
+                <Flex
+                  width={"auto"}
+                  flexWrap={"wrap"}
+                  justifyContent="flex-start"
+                >
+                  {balls.map((i) => (
+                    <Image
+                      src={i.src}
+                      width={"33%"}
+                      height={"auto"}
+                      border={"2px solid red"}
+                      marginTop="16px"
+                      cursor="pointer"
+                      borderColor={ballId === i.id ? "red" : "transparent"}
+                      onClick={() => setBallId(i.id)}
+                    ></Image>
+                  ))}
+                </Flex>
+              </TabPanel>
+              <TabPanel>
+                <Flex
+                  width={"auto"}
+                  flexWrap={"wrap"}
+                  justifyContent="flex-start"
+                >
+                  {eyes.map((i) => (
+                    <Image
+                      src={i.src}
+                      width={"33%"}
+                      height={"auto"}
+                      border={"2px solid red"}
+                      marginTop="10px"
+                      cursor="pointer"
+                      borderColor={eyeId === i.id ? "red" : "transparent"}
+                      onClick={() => setEyeId(i.id)}
+                    ></Image>
+                  ))}
+                </Flex>
+              </TabPanel>
+              <TabPanel>
+                <Flex
+                  width={"auto"}
+                  flexWrap={"wrap"}
+                  justifyContent="flex-start"
+                >
+                  {backgrounds.map((i) => (
+                    <Image
+                      src={i.src}
+                      width={"33%"}
+                      height={"auto"}
+                      border={"2px solid red"}
+                      marginTop="10px"
+                      cursor="pointer"
+                      borderColor={
+                        backgroundId === i.id ? "red" : "transparent"
+                      }
+                      onClick={() => setBackgroundId(i.id)}
+                    ></Image>
+                  ))}
+                </Flex>
+              </TabPanel>
+              <TabPanel>
+                <Flex
+                  width={"auto"}
+                  flexWrap={"wrap"}
+                  justifyContent="flex-start"
+                >
+                  {decorations.map((i) => (
+                    <Image
+                      src={i.src}
+                      width={"33%"}
+                      height={"auto"}
+                      border={"2px solid red"}
+                      marginTop="10px"
+                      cursor="pointer"
+                      borderColor={
+                        decorationId === i.id ? "red" : "transparent"
+                      }
+                      onClick={() => setDecorationId(i.id)}
+                    ></Image>
+                  ))}
+                </Flex>
+              </TabPanel>
+              <TabPanel>
+                <Flex
+                  width={"auto"}
+                  flexWrap={"wrap"}
+                  justifyContent="flex-start"
+                >
+                  {effects.map((i) => (
+                    <Image
+                      src={i.src}
+                      width={"33%"}
+                      height={"auto"}
+                      border={"2px solid red"}
+                      marginTop="10px"
+                      cursor="pointer"
+                      borderColor={effectId === i.id ? "red" : "transparent"}
+                      onClick={() => setEffectId(i.id)}
+                    ></Image>
+                  ))}
+                </Flex>
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
+        </Flex>
+      </Flex>
     </ContentBg>
   );
 }
