@@ -233,12 +233,12 @@ export default function ProfilePage() {
               fontSize={{ base: "16px", sm: "24px" }}
               lineHeight={{ base: "24px", sm: "45px" }}
             >
-              1. 多筆資料打包成 1筆上鏈，實現 Ｎ 個人free-mint，只要付一次 Gas 。
+              1. 多筆資料打包成 1筆上鏈，實現 Ｎ 個人free-mint，只要付一次 Gas。
               <br />
-              2. 大量的 Metadata 上鏈，包裝起來一次上鏈，降低所需的開發成本 。
+              2. 大量的 Metadata 上鏈，包裝起來一次上鏈，降低所需的開發成本。
               <br />
-              3. 項目方的空投活動，不再需要一個一個傳送 。<br />
-              4. 使用者只需利用錢包的簽章，即可 mint NFT，實現 0 Gas 。<br />
+              3. 項目方的空投活動，不再需要一個一個傳送。<br />
+              4. 使用者只需利用錢包的簽章，即可 mint NFT，實現 0 Gas。<br />
               5. 回答問題正確才能收到空投，但是問題驗證不在智能合約上，而是使用
               Zero Knowledge 可以節省鏈上驗證成本，且公正的驗證問題答案。
             </Box>
