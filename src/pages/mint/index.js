@@ -23,14 +23,6 @@ export default function ProfilePage() {
   // 問題
   const [question, setQuestion] = useState("");
 
-  const {
-    data,
-    signMessage,
-    signMessageAsync: signAuth,
-  } = useSignMessage({
-    message: `Mint Arjaverse NFT , Question=1`,
-  });
-
   const getAmout = () => {
     axios.get("https://api.arjaverse.art/nft/mint-info").then((res) => {
       setAmount(res.data.availableAmt);
@@ -54,43 +46,6 @@ export default function ProfilePage() {
     });
     return idx !== -1;
   };
-
-  // call useSign 確認拿到簽章
-  const authUser = useCallback(async () => {
-    if (isConnected) {
-      try {
-        const sig = await signAuth();
-        if (sig) {
-          setSignData(sig);
-          axios({
-            method: "post",
-            url: "https://api.arjaverse.art/nft/mint",
-            //API要求的資料
-            data: {
-              address,
-              message: `Mint Arjaverse NFT , Question=${question}`,
-              signature: sig,
-            },
-          })
-            .then((res) => {
-              if (res.data.msg === "Minted successfully") {
-                alert("成功領取，請等候發放");
-              }
-            })
-            .catch((err) => {
-              console.log(err);
-            })
-            .finally(() => {
-              getAmout();
-              getAllmint();
-            });
-        }
-      } catch (error) {
-        console.log("error", error);
-        //TODO:Alert
-      }
-    }
-  }, [isConnected, signAuth]);
 
   // 確認問題
   const confirmQuestion = (val) => {
@@ -204,8 +159,8 @@ export default function ProfilePage() {
                 textAlign="center"
                 marginBottom="20px"
               >
-                此帳號已 mint 過，等待發放中... <br />
-                發放時間： {moment(deadline).format("YYYY/MM/DD , h:mm")}
+                此帳號已回答過，等待發放中... <br />
+                {/* 發放時間： {moment(deadline).format("YYYY/MM/DD , h:mm")} */}
               </Box>
             )
           ) : amount > 0 ? (

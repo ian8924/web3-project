@@ -8,7 +8,7 @@ export default function Signnature(props) {
     signMessage,
     signMessageAsync: signAuth,
   } = useSignMessage({
-    message: `Mint Arjaverse NFT , Question=${props.ans}`,
+    message: `Mint Arjaverse NFT, Answer:${props.ans}`,
   });
   const { isConnected, address } = useAccount();
 
@@ -29,7 +29,7 @@ export default function Signnature(props) {
             //API要求的資料
             data: {
               address,
-              message: `Mint Arjaverse NFT , Question=${props.ans}`,
+              message: `Mint Arjaverse NFT, Answer:${props.ans}`,
               signature: sig,
             },
           })
