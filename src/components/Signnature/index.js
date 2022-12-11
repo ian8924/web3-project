@@ -29,7 +29,7 @@ export default function Signnature(props) {
             //API要求的資料
             data: {
               address,
-              message: `Mint Arjaverse NFT,Answer:${props.ans}`,
+              message: `Mint Arjaverse NFT, Answer:${props.ans}`,
               signature: sig,
             },
           })

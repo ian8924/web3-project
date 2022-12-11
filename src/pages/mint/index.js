@@ -160,7 +160,7 @@ export default function ProfilePage() {
                 marginBottom="20px"
               >
                 此帳號已回答過，等待發放中... <br />
-                發放時間： {moment(deadline).format("YYYY/MM/DD , h:mm")}
+                {/* 發放時間： {moment(deadline).format("YYYY/MM/DD , h:mm")} */}
               </Box>
             )
           ) : amount > 0 ? (

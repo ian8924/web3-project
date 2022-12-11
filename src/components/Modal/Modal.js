@@ -36,7 +36,6 @@ const ModalQuestion = forwardRef((props, ref) => {
   return (
     <>
       <NoSSRWrapper>
-        <Button onClick={onOpen}>Open Drawer</Button>
         <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent marginRight={"12px"} marginLeft={"12px"}>
