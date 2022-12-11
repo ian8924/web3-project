@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useSignMessage, useAccount } from "wagmi";
+import axios from "axios";
 
 export default function Signnature(props) {
   const {
@@ -21,13 +22,14 @@ export default function Signnature(props) {
         const sig = await signAuth();
         if (sig) {
           props.setSignData(sig);
+
           axios({
             method: "post",
             url: "https://api.arjaverse.art/nft/mint",
             //API要求的資料
             data: {
               address,
-              message: `Mint Arjaverse NFT , Question=${question}`,
+              message: `Mint Arjaverse NFT , Question=${props.ans}`,
               signature: sig,
             },
           })
@@ -38,20 +40,19 @@ export default function Signnature(props) {
             })
             .catch((err) => {
               console.log(err);
+              alert("領取失敗");
             })
             .finally(() => {
               props.reload();
             });
         }
       } catch (error) {
+        console.log(error);
         alert("簽署失敗");
         props.errorLoad();
       }
     }
   }, [isConnected, signAuth]);
 
-  return (
-    <>
-    </>
-  );
+  return <></>;
 }
