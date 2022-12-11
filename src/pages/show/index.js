@@ -296,8 +296,9 @@ export default function ShowPage() {
                   flexWrap={"wrap"}
                   justifyContent="flex-start"
                 >
-                  {bodys.map((i) => (
+                  {bodys.map((i, index) => (
                     <Image
+                      key={index}
                       src={i.src}
                       width={"33%"}
                       height={"auto"}
@@ -306,7 +307,7 @@ export default function ShowPage() {
                       cursor="pointer"
                       borderColor={bodyId === i.id ? "red" : "transparent"}
                       onClick={() => setBodyId(i.id)}
-                    ></Image>
+                    />
                   ))}
                 </Flex>
               </TabPanel>
@@ -316,8 +317,9 @@ export default function ShowPage() {
                   flexWrap={"wrap"}
                   justifyContent="flex-start"
                 >
-                  {balls.map((i) => (
+                  {balls.map((i, index) => (
                     <Image
+                      key={index}
                       src={i.src}
                       width={"33%"}
                       height={"auto"}
@@ -336,8 +338,9 @@ export default function ShowPage() {
                   flexWrap={"wrap"}
                   justifyContent="flex-start"
                 >
-                  {eyes.map((i) => (
+                  {eyes.map((i, index) => (
                     <Image
+                      key={index}
                       src={i.src}
                       width={"33%"}
                       height={"auto"}
@@ -356,8 +359,9 @@ export default function ShowPage() {
                   flexWrap={"wrap"}
                   justifyContent="flex-start"
                 >
-                  {backgrounds.map((i) => (
+                  {backgrounds.map((i, index) => (
                     <Image
+                      key={index}
                       src={i.src}
                       width={"33%"}
                       height={"auto"}
@@ -378,8 +382,9 @@ export default function ShowPage() {
                   flexWrap={"wrap"}
                   justifyContent="flex-start"
                 >
-                  {decorations.map((i) => (
+                  {decorations.map((i, index) => (
                     <Image
+                      key={index}
                       src={i.src}
                       width={"33%"}
                       height={"auto"}
@@ -400,8 +405,9 @@ export default function ShowPage() {
                   flexWrap={"wrap"}
                   justifyContent="flex-start"
                 >
-                  {effects.map((i) => (
+                  {effects.map((i, index) => (
                     <Image
+                      key={index}
                       src={i.src}
                       width={"33%"}
                       height={"auto"}
