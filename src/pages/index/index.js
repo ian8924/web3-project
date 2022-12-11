@@ -2,10 +2,10 @@ import React from "react";
 import { Flex, Box } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import Background from "../components/Background/Background";
-import WaveButton from "../components/Button/WaveButton/WaveButton";
+import Background from "../../components/Background/Background";
+import WaveButton from "../../components/Button/WaveButton/WaveButton";
 import { useAccount } from "wagmi";
-import NoSSRWrapper from "../components/NoSSRWrapper";
+import NoSSRWrapper from "../../components/NoSSRWrapper";
 //TODO: add animation
 
 export default function Main() {
