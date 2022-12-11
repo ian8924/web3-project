@@ -6,6 +6,8 @@ import "@rainbow-me/rainbowkit/styles.css";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
+import { publicProvider } from "wagmi/providers/public";
+
 import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
@@ -57,9 +59,9 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>Arjaverse!</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link
-          href={`https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;500;600;700&display=swap`}
+          href="https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
         <link rel="icon" href={Logo.src} />
