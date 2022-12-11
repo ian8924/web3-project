@@ -4304,10 +4304,10 @@ pngjs@^5.0.0:
   resolved "https://registry.yarnpkg.com/pngjs/-/pngjs-5.0.0.tgz#e79dd2b215767fd9c04561c01236df960bce7fbb"
   integrity sha512-40QW5YalBNfQo5yRYmiw7Yz6TKKVr3h6970B2YE+3fQpsWcrbj1PzJgxeJ19DRQjhMbKPIuMY8rFaXc8moolVw==
 
-pnpm@^7.14.2:
-  version "7.17.0"
-  resolved "https://registry.yarnpkg.com/pnpm/-/pnpm-7.17.0.tgz#3470fe6fbeee107f01cb1878a27c931099c36e3a"
-  integrity sha512-0oy+VI/6r248MzFrr3jBTQ5qxC1wM+wP3YoGcoohPEMk+5LfQBYHsazdu8QDtuigr2jjaDi0hfg/c8k89jxiEA==
+pnpm@^7.18.1:
+  version "7.18.1"
+  resolved "https://registry.yarnpkg.com/pnpm/-/pnpm-7.18.1.tgz#08baaae841f182ccd9f541b821bf8611c474f685"
+  integrity sha512-GulnWxFW1dej1sSiju1FlYtvWIYa35ZvbTk9F8jOo+1GgJEVdx1ObLaZCApd2I4IB+jozyNWzInEdV0hQgUq0Q==
 
 popmotion@11.0.5:
   version "11.0.5"
