@@ -25,6 +25,7 @@ export default function Header() {
       justify="space-between"
       align="center"
       px={{ base: "8px", sm: "2.5rem", md: "2.5rem" }}
+      py={{ base: "8px", sm: "8px", md: "8px" }}
       overflow="hidden"
       className="absolute z-50 h-20 w-full bg-white shadow-top"
     >
