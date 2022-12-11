@@ -8,7 +8,7 @@ export default function Signnature(props) {
     signMessage,
     signMessageAsync: signAuth,
   } = useSignMessage({
-    message: `Mint Arjaverse NFT,Answer:${props.ans}`,
+    message: `Mint Arjaverse NFT, Answer:${props.ans}`,
   });
   const { isConnected, address } = useAccount();
 
