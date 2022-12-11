@@ -45,8 +45,7 @@ const ModalQuestion = forwardRef((props, ref) => {
             </ModalHeader>
             <ModalBody>
               <Box color={"black"} fontSize={"20px"} marginBottom={"20px"}>
-                What advantages does ZK-Rollup offer over traditional blockchain
-                technology?
+                Which is the advantage of ZK-Rollup ?
               </Box>
 
               <RadioGroup onChange={setValue} value={value} marginTop={"12px"}>
