@@ -69,7 +69,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href={Logo.src} />
       </Head>
       <WagmiConfig client={wagmiClient}>
-        <CacheProvider value={emotionCache}>
+        {/* <CacheProvider value={emotionCache}> */}
           <ChakraProvider theme={theme}>
             <RainbowKitProvider chains={chains}>
               <Header />
@@ -78,7 +78,7 @@ function MyApp({ Component, pageProps }) {
               </div>
             </RainbowKitProvider>
           </ChakraProvider>
-        </CacheProvider>
+        {/* </CacheProvider> */}
       </WagmiConfig>
     </>
   );
