@@ -115,7 +115,8 @@ export default function Background(props) {
         <Box
           width={{ base: "400px", sm: "90%", md: "40%" }}
           height={{ base: "400px", sm: "auto", md: "auto" }}
-          marginBottom={{ base: "-250px", sm: "-35%", md: "-450px" }}
+          marginTop={{ base: "10px", sm: "20px", md: "0px" }}
+          marginBottom={{ base: "-250px", sm: "-350px", md: "-330px" }}
           zIndex={"0"}
         >
           <Image

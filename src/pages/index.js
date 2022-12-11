@@ -56,7 +56,7 @@ export default function Main() {
             justifyContent="center"
             width="100%"
             marginTop={{ base: "5px", sm: "30px" }}
-            marginBottom={{ base: "20px", sm: "100px" }}
+            marginBottom={{ base: "20px", sm: "-100px", md: "-100px" }}
           >
             <Box
               gap="4"
