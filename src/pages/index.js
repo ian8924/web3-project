@@ -6,7 +6,6 @@ import Background from "../components/Background/Background";
 import WaveButton from "../components/Button/WaveButton/WaveButton";
 import { useAccount } from "wagmi";
 import NoSSRWrapper from "../components/NoSSRWrapper";
-import { motion } from "framer-motion";
 //TODO: add animation
 
 export default function Main() {
