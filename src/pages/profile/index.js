@@ -55,10 +55,10 @@ export default function ProfilePage() {
           {tilte}
         </Flex>
         {/* //TODO: Skeleton before get NFT */}
-        <Center h={"calc(100vh - 80px)"} w={"100vw"}>
+        <Center width={'100%'} height={'auto'}>
           {/* <img width={"100vw"} height={"100vh"} src={imageUrl} /> */}
           <iframe
-            className={`${bgColor} w-5/6 h-[50%] md:h-1/2 md:w-5/6 lg:h-2/3 xl:h-3/4 xl:w-3/4 2xl:w-8/12`}
+            className={`${bgColor} iframe`}
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             sandbox="allow-scripts"
             src={"https://ipfs.io/ipfs/" + animationUrl}
