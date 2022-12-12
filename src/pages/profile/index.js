@@ -61,7 +61,7 @@ export default function ProfilePage() {
             className={`${bgColor} w-5/6 h-[50%] md:h-1/2 md:w-5/6 lg:h-2/3 xl:h-3/4 xl:w-3/4 2xl:w-8/12`}
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             sandbox="allow-scripts"
-            src={"http://ipfs.io/ipfs/" + animationUrl}
+            src={"https://ipfs.io/ipfs/" + animationUrl}
           />
         </Center>
       </Box>
