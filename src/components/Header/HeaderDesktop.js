@@ -50,7 +50,7 @@ export default function Desktop(props) {
             title="Opensea"
             onClick={() => {
               window.open(
-                "https://testnets.opensea.io/collection/arjaverse-nft",
+                "https://testnets.opensea.io/zh-TW/collection/arjaverse-nft-v2",
                 "_blank"
               );
             }}
