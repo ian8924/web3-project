@@ -33,14 +33,14 @@ export default function ProfilePage() {
     }
   })
   const getTokenURI = useCallback(async () => {
+    // const tokenURI = await contract?.tokenURI(2);
     const tokenURI = await contract?.tokenURI(userTokenID);
     const object = JSON.parse(
       decode(tokenURI.replace("data:application/json;base64,", ""))
     );
     setImageUrl(object.image);
     const url = object.animation_url.replace("ipfs://", "");
-    console.log("address", address)
-    setAnimationUrl("http://ipfs.io/ipfs/" + url);
+    setAnimationUrl("https://ipfs.io/ipfs/" + url);
     setBgColor("bg-[#" + object.attributes[0].value + "]");
   }, [contract, userTokenID]);
 
@@ -68,10 +68,10 @@ export default function ProfilePage() {
           {tilte}
         </Flex>
         {/* //TODO: Skeleton before get NFT */}
-        <Center h={"calc(100vh - 80px)"} w={"100vw"}>
+        <Center width={'100%'} height={'auto'}>
           {/* <img width={"100vw"} height={"100vh"} src={imageUrl} /> */}
           <iframe
-            className={`${bgColor} w-5/6 h-[50%] md:h-1/2 md:w-5/6 lg:h-2/3 xl:h-3/4 xl:w-3/4 2xl:w-8/12`}
+            className={`${bgColor} iframe`}
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             sandbox="allow-scripts"
             src={animationUrl}

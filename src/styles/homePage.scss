@@ -40,6 +40,7 @@ body {
   height: 500px;
   background: rgb(87, 136, 160, .9);
   margin-top: 7px;
+  z-index: 20;
 }
 
 // titles
@@ -80,6 +81,13 @@ body {
   animation-delay: -5s;
   animation-duration: 20s;
 }
+
+.iframe {
+  margin-top: 20px;
+  width: 100%;
+  height: 400px;
+}
+
 @keyframes move-forever {
   0% {
     transform: translate3d(-90px, 0, 0);
@@ -119,6 +127,12 @@ body {
       background-color: rgba(255, 229, 201, 1);
   
     }
+  }
+
+  .iframe {
+    margin-top: 20px;
+    width: 100%;
+    height: 300px;
   }
 
 }

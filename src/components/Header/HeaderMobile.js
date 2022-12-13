@@ -57,7 +57,7 @@ export default function Mobile(props) {
                 <ConnectButton.Custom>
                   {({ chain, openAccountModal, openChainModal }) => {
                     return (
-                      <>
+                      <Flex>
                         <Box
                           as="button"
                           bg="white"
@@ -83,6 +83,8 @@ export default function Mobile(props) {
                           justifyContent="center"
                           gap="3"
                           alignItems="center"
+                          marginLeft={'16px'}
+                          rounded={"2xl"}
                           _hover={{ bg: "white" }}
                           className="shadow-xl bg-white rounded-2xl p-2"
                           onClick={() => openAccountModal()}
@@ -94,7 +96,7 @@ export default function Mobile(props) {
                             address.slice(38, 42)}
                           <ChevronDownIcon />
                         </Box>
-                      </>
+                      </Flex>
                     );
                   }}
                 </ConnectButton.Custom>

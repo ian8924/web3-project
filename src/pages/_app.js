@@ -57,7 +57,11 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>Arjaverse!</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
         <link
           href={`https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;500;600;700&display=swap`}
           rel="stylesheet"
@@ -65,16 +69,16 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href={Logo.src} />
       </Head>
       <WagmiConfig client={wagmiClient}>
+        {/* <CacheProvider value={emotionCache}> */}
         <RainbowKitProvider chains={chains}>
-          <CacheProvider value={emotionCache}>
-            <ChakraProvider theme={theme}>
-              <Header />
-              <div className="pt-20">
-                <Component {...pageProps} />
-              </div>
-            </ChakraProvider>
-          </CacheProvider>
+          <ChakraProvider theme={theme}>
+            <Header/>
+            <div className="pt-20">
+              <Component {...pageProps} />
+            </div>
+          </ChakraProvider>
         </RainbowKitProvider>
+        {/* </CacheProvider> */}
       </WagmiConfig>
     </>
   );
