@@ -69,16 +69,16 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href={Logo.src} />
       </Head>
       <WagmiConfig client={wagmiClient}>
-        {/* <CacheProvider value={emotionCache}> */}
-        <RainbowKitProvider chains={chains}>
-          <ChakraProvider theme={theme}>
-            <Header/>
-            <div className="pt-20">
-              <Component {...pageProps} />
-            </div>
-          </ChakraProvider>
-        </RainbowKitProvider>
-        {/* </CacheProvider> */}
+        <CacheProvider value={emotionCache}>
+          <RainbowKitProvider chains={chains}>
+            <ChakraProvider theme={theme}>
+              <Header />
+              <div className="pt-20">
+                <Component {...pageProps} />
+              </div>
+            </ChakraProvider>
+          </RainbowKitProvider>
+        </CacheProvider>
       </WagmiConfig>
     </>
   );

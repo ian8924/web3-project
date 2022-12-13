@@ -1,25 +1,33 @@
 import React, { useEffect, useState } from "react";
 // import Image from 'next/dist/client/image';
-import { Flex } from "@chakra-ui/react";
+import { Flex, useToast } from "@chakra-ui/react";
 import Mobile from "./HeaderMobile";
 import Desktop from "./HeaderDesktop";
 import { getContract } from "../../hooks/useContract";
 import { useRouter } from "next/router";
 import { useAccount } from "wagmi";
+import Alert from "../Alert/Alert";
 
 export default function Header() {
   const router = useRouter();
   const { address } = useAccount();
-  const [ifAddressHasNFT, setIfAddressHasNFT] = useState()
-  const getAddressBalanceOf = (async () => {
+  const toast = useToast();
+  const [ifAddressHasNFT, setIfAddressHasNFT] = useState(false);
+  const getAddressBalanceOf = async () => {
     const contract = await getContract();
-    const balanceOf = await contract.balanceOf(address)
-    setIfAddressHasNFT(balanceOf.toNumber() === 0 ? false : true)
-  })
+    const balanceOf = await contract.balanceOf(address);
+    setIfAddressHasNFT(balanceOf.toNumber() === 0 ? false : true);
+  };
   const goPage = (page) => {
     if (page !== "/") {
       if (!address) {
-        alert("請先連結錢包");
+        toast({
+          duration: 2000,
+          position: "bottom",
+          render: () => (
+            <Alert content="Please connect wallet First !" variant="info" />
+          ),
+        });
         return;
       }
     }
@@ -27,7 +35,9 @@ export default function Header() {
   };
 
   useEffect(() => {
-    getAddressBalanceOf();
+    if (address) {
+      getAddressBalanceOf();
+    }
   }, []);
   return (
     <Flex

@@ -2,8 +2,8 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  purge: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
-  content: ["./src/**/*.{js,jsx}"],
+  // purge: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   corePlugins: {
     preflight: false,
   },

@@ -16,14 +16,16 @@ export default function Main() {
   const goPage = (page) => {
     router.push(page);
   };
-  const [ifAddressHasNFT, setIfAddressHasNFT] = useState()
-  const getAddressBalanceOf = (async () => {
+  const [ifAddressHasNFT, setIfAddressHasNFT] = useState(false);
+  const getAddressBalanceOf = async () => {
     const contract = await getContract();
-    const balanceOf = await contract.balanceOf(address)
-    setIfAddressHasNFT(balanceOf.toNumber() === 0 ? false : true)
-  })
+    const balanceOf = await contract.balanceOf(address);
+    setIfAddressHasNFT(balanceOf.toNumber() === 0 ? false : true);
+  };
   useEffect(() => {
-    getAddressBalanceOf();
+    if (address) {
+      getAddressBalanceOf();
+    }
   }, []);
   return (
     <Background>
@@ -72,13 +74,17 @@ export default function Main() {
               gap="4"
               width={{ base: "80%", sm: "80%" }}
               display={{ base: "flex", sm: "80px" }}
-              alignItems={'center'}
+              alignItems={"center"}
               flexDirection={{ base: "column", sm: "column", md: "row" }}
               justifyContent="center"
               zIndex={20}
             >
               <WaveButton fun={() => goPage("/mint")}>Go To Mint</WaveButton>
-              {ifAddressHasNFT ? <WaveButton fun={() => goPage("/profile")}>My NFT</WaveButton> : <></>}
+              {ifAddressHasNFT ? (
+                <WaveButton fun={() => goPage("/profile")}>My NFT</WaveButton>
+              ) : (
+                <></>
+              )}
               <WaveButton fun={() => goPage("/show")}>Show Room</WaveButton>
             </Box>
           </Box>

@@ -9,7 +9,7 @@ export default function HeaderButton(props) {
       as="button"
       disabled={!ifAddressHasNFT}
       opacity={ifAddressHasNFT ? "1" : "0.5"}
-      cursor={ifAddressHasNFT ? 'pointer' : 'not-allowed'}
+      cursor={ifAddressHasNFT ? "pointer" : "not-allowed"}
       display={{ base: "none", lg: "block" }}
       justifyContent={"center"}
       borderRadius="45px"
@@ -19,6 +19,7 @@ export default function HeaderButton(props) {
       fontSize="19px"
       fontWeight="500"
       onClick={onClick}
+      zIndex="3"
     >
       <div className="headerText" data-storke={title}>
         {title}

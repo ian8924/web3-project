@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useSignMessage, useAccount } from "wagmi";
 import axios from "axios";
+import { useToast } from "@chakra-ui/react";
+import Alert from "../Alert/Alert";
 
 export default function Signnature(props) {
-  const {
-    data,
-    signMessage,
-    signMessageAsync: signAuth,
-  } = useSignMessage({
+  const { signMessageAsync: signAuth } = useSignMessage({
     message: `Mint Arjaverse NFT, Answer:${props.ans}`,
   });
+  const toast = useToast();
+
   const { isConnected, address } = useAccount();
 
   useEffect(() => {
@@ -35,12 +35,26 @@ export default function Signnature(props) {
           })
             .then((res) => {
               if (res.data.msg === "Minted successfully") {
-                alert("成功領取，請等候發放");
+                toast({
+                  duration: 2000,
+                  position: "bottom",
+                  render: () => (
+                    <Alert
+                      content="成功送出回答，請等候驗證"
+                      variant="success"
+                    />
+                  ),
+                });
+                return;
               }
             })
             .catch((err) => {
               console.log(err);
-              alert("領取失敗");
+              toast({
+                duration: 2000,
+                position: "bottom",
+                render: () => <Alert content="Failed" variant="error" />,
+              });
             })
             .finally(() => {
               props.reload();
@@ -48,7 +62,11 @@ export default function Signnature(props) {
         }
       } catch (error) {
         console.log(error);
-        alert("簽署失敗");
+        toast({
+          duration: 2000,
+          position: "bottom",
+          render: () => <Alert content="簽署失敗" variant="error" />,
+        });
         props.errorLoad();
       }
     }
