@@ -1,10 +1,7 @@
 import React, { useState, useCallback, useEffect, useContext } from "react";
 import { Flex, Center, Box } from "@chakra-ui/react";
-import Background from "../../components/Background/Background";
 import ContentBg from "../../components/Background/ContentBg";
-import { getContract } from "../../hooks/useContract";
 import { decode } from "js-base64";
-import { useAccount } from "wagmi";
 import { AccountContext } from "../../components/Provider";
 import { useRouter } from "next/router";
 
@@ -30,7 +27,12 @@ export default function ProfilePage() {
       );
       setImageUrl(object.image);
       const url = object.animation_url.replace("ipfs://", "");
-      setAnimationUrl("https://ipfs.io/ipfs/" + url);
+      // setAnimationUrl("https://ipfs.io/ipfs/" + url);
+      setAnimationUrl(
+        `https://arjaverse.art/game.html?bg=${
+          object.attributes[0].value
+        }&ball=${object.attributes[5].value}&id=${userTokenID.toNumber()}`
+      );
       setBgColor("bg-[#" + object.attributes[0].value + "]");
     }
   }, [contractAction, userTokenID]);
@@ -63,14 +65,20 @@ export default function ProfilePage() {
           {tilte}
         </Flex>
         {/* //TODO: Skeleton before get NFT */}
-        <Center width={"100%"} height={"auto"}>
+        <Center h={"calc(100vh - 80px)"} w={"100vw"}>
           {/* <img width={"100vw"} height={"100vh"} src={imageUrl} /> */}
           <iframe
-            className={`${bgColor} iframe`}
+            className={`${bgColor} w-5/6 h-[50%] md:h-1/2 md:w-5/6 lg:h-2/3 xl:h-3/4 xl:w-3/4 2xl:w-8/12`}
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             sandbox="allow-scripts"
             src={animationUrl}
           />
+          {/* <iframe
+            className={`${bgColor} iframe`}
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            sandbox="allow-scripts"
+            src={animationUrl}
+          /> */}
         </Center>
       </Box>
     </ContentBg>
