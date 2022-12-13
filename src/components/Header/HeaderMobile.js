@@ -30,7 +30,7 @@ export default function Mobile(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [hover, setHover] = useState(false);
 
-  const { goPage } = props;
+  const { goPage, ifAddressHasNFT } = props;
 
   return (
     <>
@@ -90,8 +90,8 @@ export default function Mobile(props) {
                           {ens
                             ? ens
                             : address.slice(0, 4) +
-                              "..." +
-                              address.slice(38, 42)}
+                            "..." +
+                            address.slice(38, 42)}
                           <ChevronDownIcon />
                         </Box>
                       </>
@@ -129,6 +129,9 @@ export default function Mobile(props) {
                   <Button
                     width={"100%"}
                     bgColor="#B5E0E9"
+                    disabled={!ifAddressHasNFT}
+                    opacity={ifAddressHasNFT ? "1" : "0.5"}
+                    cursor={ifAddressHasNFT ? 'pointer' : 'not-allowed'}
                     color="cyan.800"
                     className="drop-shadow-xl"
                     onClick={() => {
@@ -168,7 +171,7 @@ export default function Mobile(props) {
                   </Button>
                 </Center>
 
-                
+
               </div>
             ) : (
               <></>

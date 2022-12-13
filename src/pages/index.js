@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Flex, Box } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
@@ -7,6 +7,7 @@ import WaveButton from "../components/Button/WaveButton/WaveButton";
 import { useAccount } from "wagmi";
 import NoSSRWrapper from "../components/NoSSRWrapper";
 import { motion } from "framer-motion";
+import { getContract } from "../hooks/useContract";
 //TODO: add animation
 
 export default function Main() {
@@ -15,7 +16,15 @@ export default function Main() {
   const goPage = (page) => {
     router.push(page);
   };
-
+  const [ifAddressHasNFT, setIfAddressHasNFT] = useState()
+  const getAddressBalanceOf = (async () => {
+    const contract = await getContract();
+    const balanceOf = await contract.balanceOf(address)
+    setIfAddressHasNFT(balanceOf.toNumber() === 0 ? false : true)
+  })
+  useEffect(() => {
+    getAddressBalanceOf();
+  }, []);
   return (
     <Background>
       <Box
@@ -64,12 +73,12 @@ export default function Main() {
               width={{ base: "80%", sm: "80%" }}
               display={{ base: "flex", sm: "80px" }}
               alignItems={'center'}
-              flexDirection={{ base: "column", sm: "column" , md: "row" }}
+              flexDirection={{ base: "column", sm: "column", md: "row" }}
               justifyContent="center"
               zIndex={20}
             >
-              <WaveButton fun={() => goPage("/profile")}>My NFT</WaveButton>
               <WaveButton fun={() => goPage("/mint")}>Go To Mint</WaveButton>
+              {ifAddressHasNFT ? <WaveButton fun={() => goPage("/profile")}>My NFT</WaveButton> : <></>}
               <WaveButton fun={() => goPage("/show")}>Show Room</WaveButton>
             </Box>
           </Box>

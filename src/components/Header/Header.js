@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import Image from 'next/dist/client/image';
 import { Flex } from "@chakra-ui/react";
 import Mobile from "./HeaderMobile";
 import Desktop from "./HeaderDesktop";
-// import Image from 'next/dist/client/image';
+import { getContract } from "../../hooks/useContract";
 import { useRouter } from "next/router";
 import { useAccount } from "wagmi";
 
 export default function Header() {
   const router = useRouter();
   const { address } = useAccount();
+  const [ifAddressHasNFT, setIfAddressHasNFT] = useState()
+  const getAddressBalanceOf = (async () => {
+    const contract = await getContract();
+    const balanceOf = await contract.balanceOf(address)
+    setIfAddressHasNFT(balanceOf.toNumber() === 0 ? false : true)
+  })
   const goPage = (page) => {
     if (page !== "/") {
       if (!address) {
@@ -20,6 +26,9 @@ export default function Header() {
     router.push(page);
   };
 
+  useEffect(() => {
+    getAddressBalanceOf();
+  }, []);
   return (
     <Flex
       justify="space-between"
@@ -28,8 +37,8 @@ export default function Header() {
       overflow="hidden"
       className="absolute z-50 h-20 w-full bg-white shadow-top"
     >
-      <Desktop goPage={goPage} />
-      <Mobile goPage={goPage} />
+      <Desktop goPage={goPage} ifAddressHasNFT={ifAddressHasNFT} />
+      <Mobile goPage={goPage} ifAddressHasNFT={ifAddressHasNFT} />
     </Flex>
   );
 }

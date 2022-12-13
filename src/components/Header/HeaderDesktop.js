@@ -7,7 +7,7 @@ import NoSSRWrapper from "../NoSSRWrapper";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export default function Desktop(props) {
-  const { goPage } = props;
+  const { goPage, ifAddressHasNFT } = props;
 
   return (
     <>
@@ -36,7 +36,7 @@ export default function Desktop(props) {
           <HeaderButton title="Go To Mint" onClick={() => goPage("/mint")} />
         </Center>
         <Center>
-          <HeaderButton title="My NFTs" onClick={() => goPage("/profile")} />
+          <HeaderButton title="My NFTs" onClick={() => goPage("/profile")} ifAddressHasNFT={ifAddressHasNFT} />
         </Center>
         <Center>
           <HeaderButton title="ShowRoom" onClick={() => goPage("/show")} />
