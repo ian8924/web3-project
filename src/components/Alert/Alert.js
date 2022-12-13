@@ -23,7 +23,7 @@ export default function Alert(props) {
         <Icons id="info" width={30} height={18} className="fill-white" />
       </div>
       <div
-        className="flex-1 pl-5 text-yellow headerText text-left text-xl"
+        className="flex-1 px-5 text-yellow headerText text-left text-xl"
         data-storke={content}
       >
         {content}

@@ -2,18 +2,17 @@ import React, { useState, useCallback, useEffect } from "react";
 import { Flex, Center, Box } from "@chakra-ui/react";
 import Background from "../../components/Background/Background";
 import ContentBg from "../../components/Background/ContentBg";
-import Alert from "../../components/Alert/Alert";
 import { getContract } from "../../hooks/useContract";
 import { decode } from "js-base64";
 import { useAccount } from "wagmi";
 
 export default function ProfilePage() {
-  const { address } = useAccount()
+  const { address } = useAccount();
   const [contract, setContract] = useState();
   const [imageUrl, setImageUrl] = useState();
   const [animationUrl, setAnimationUrl] = useState();
   const [bgColor, setBgColor] = useState();
-  const [ifAddressHasNFT, setIfAddressHasNFT] = useState()
+  const [ifAddressHasNFT, setIfAddressHasNFT] = useState();
   const [userTokenID, setUserTokenID] = useState();
   const tilte = "Here is your NFT , come and play your NFT right now";
 
@@ -24,14 +23,14 @@ export default function ProfilePage() {
     const contract = await getContract();
     setContract(contract);
   }, []);
-  const getAddressBalanceOf = (async () => {
-    const balanceOf = await contract.balanceOf(address)
-    setIfAddressHasNFT(balanceOf.toNumber() === 0 ? false : true)
+  const getAddressBalanceOf = async () => {
+    const balanceOf = await contract.balanceOf(address);
+    setIfAddressHasNFT(balanceOf.toNumber() === 0 ? false : true);
     if (balanceOf?.toNumber()) {
-      const tokenID = await contract.tokenOfOwnerByIndex(address, 0)
-      setUserTokenID(tokenID)
+      const tokenID = await contract.tokenOfOwnerByIndex(address, 0);
+      setUserTokenID(tokenID);
     }
-  })
+  };
   const getTokenURI = useCallback(async () => {
     // const tokenURI = await contract?.tokenURI(2);
     const tokenURI = await contract?.tokenURI(userTokenID);
@@ -50,7 +49,7 @@ export default function ProfilePage() {
   useEffect(() => {
     if (contract) {
       getTokenURI();
-      getAddressBalanceOf()
+      getAddressBalanceOf();
     }
   }, [contract]);
   return (
@@ -68,7 +67,7 @@ export default function ProfilePage() {
           {tilte}
         </Flex>
         {/* //TODO: Skeleton before get NFT */}
-        <Center width={'100%'} height={'auto'}>
+        <Center width={"100%"} height={"auto"}>
           {/* <img width={"100vw"} height={"100vh"} src={imageUrl} /> */}
           <iframe
             className={`${bgColor} iframe`}

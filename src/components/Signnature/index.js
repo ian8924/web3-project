@@ -40,7 +40,7 @@ export default function Signnature(props) {
                   position: "bottom",
                   render: () => (
                     <Alert
-                      content="成功送出回答，請等候驗證"
+                      content="Answer sent successfully, please wait for verification"
                       variant="success"
                     />
                   ),
@@ -65,7 +65,7 @@ export default function Signnature(props) {
         toast({
           duration: 2000,
           position: "bottom",
-          render: () => <Alert content="簽署失敗" variant="error" />,
+          render: () => <Alert content="Signed fail" variant="error" />,
         });
         props.errorLoad();
       }
