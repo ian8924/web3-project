@@ -149,17 +149,17 @@ export default function ProfilePage() {
                 marginBottom="20px"
                 color="red"
               >
-                所有NFT已發放完畢
+                All NFTs have been sent
               </Box>
             ) : (
               <Box
-                fontSize={{ base: "30px", sm: "50px" }}
+                fontSize={{ base: "30px", sm: "30px" }}
                 fontWeight="700"
                 color="#425673"
                 textAlign="center"
                 marginBottom="20px"
               >
-                此帳號已回答過，等待發放中... <br />
+                This account has already answered, waiting for verification... <br />
                 {/* 發放時間： {moment(deadline).format("YYYY/MM/DD , h:mm")} */}
               </Box>
             )
@@ -186,7 +186,7 @@ export default function ProfilePage() {
               marginBottom="20px"
               color="red"
             >
-              所有NFT已發放完畢
+              All NFTs have been sent
             </Box>
           )}
           <Box
@@ -210,16 +210,12 @@ export default function ProfilePage() {
               fontSize={{ base: "16px", sm: "24px" }}
               lineHeight={{ base: "24px", sm: "45px" }}
             >
-              1. 多筆資料打包成 1筆上鏈，實現 Ｎ 個人free-mint，只要付一次 Gas。
+              1. N ➜ 1,  N Transactions can package into 1 transaction and achieve many people free-minting, only paying once for the gas fee of the rollup.
               <br />
-              2. 大量的 Metadata 上鏈，包裝起來一次上鏈，降低所需的開發成本。
+              2. ZKP decentralized verification, verified on smart contract and not on frontend or backend.
               <br />
-              3. 項目方的空投活動，不再需要一個一個傳送。
+              3. Perfect UX, only need signature and without any gas fee.
               <br />
-              4. 使用者只需利用錢包的簽章，即可 mint NFT，實現 0 Gas。
-              <br />
-              5. 回答問題正確才能收到空投，但是問題驗證不在智能合約上，而是使用
-              Zero Knowledge 可以節省鏈上驗證成本，且公正的驗證問題答案。
             </Box>
           </Box>
         </Box>

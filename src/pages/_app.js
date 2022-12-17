@@ -34,7 +34,7 @@ const theme = extendTheme({
 });
 
 const { chains, provider } = configureChains(
-  [chain.mainnet, chain.goerli],
+  [chain.mainnet],
   [
     alchemyProvider({ apiKey: "5Rbut6tuZaLXz2YsqwJ7Uj3TKtAVkinZ" }),
     // publicProvider(),
