@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import Image from 'next/dist/client/image';
 import {
   Center,
   Flex,
@@ -55,7 +54,7 @@ export default function Mobile(props) {
             {address ? (
               <div className="flex justify-around text-darkBlue text-lg h-16 items-center">
                 <ConnectButton.Custom>
-                  {({ chain, openAccountModal, openChainModal }) => {
+                  {({ openAccountModal, openChainModal }) => {
                     return (
                       <Flex>
                         <Box
@@ -83,7 +82,7 @@ export default function Mobile(props) {
                           justifyContent="center"
                           gap="3"
                           alignItems="center"
-                          marginLeft={'16px'}
+                          marginLeft={"16px"}
                           rounded={"2xl"}
                           _hover={{ bg: "white" }}
                           className="shadow-xl bg-white rounded-2xl p-2"
@@ -92,8 +91,8 @@ export default function Mobile(props) {
                           {ens
                             ? ens
                             : address.slice(0, 4) +
-                            "..." +
-                            address.slice(38, 42)}
+                              "..." +
+                              address.slice(38, 42)}
                           <ChevronDownIcon />
                         </Box>
                       </Flex>
@@ -133,7 +132,7 @@ export default function Mobile(props) {
                     bgColor="#B5E0E9"
                     disabled={!ifAddressHasNFT}
                     opacity={ifAddressHasNFT ? "1" : "0.5"}
-                    cursor={ifAddressHasNFT ? 'pointer' : 'not-allowed'}
+                    cursor={ifAddressHasNFT ? "pointer" : "not-allowed"}
                     color="cyan.800"
                     className="drop-shadow-xl"
                     onClick={() => {
@@ -172,8 +171,6 @@ export default function Mobile(props) {
                     Opensea
                   </Button>
                 </Center>
-
-
               </div>
             ) : (
               <></>

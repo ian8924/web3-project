@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Flex, Box } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
@@ -6,27 +6,17 @@ import Background from "../components/Background/Background";
 import WaveButton from "../components/Button/WaveButton/WaveButton";
 import { useAccount } from "wagmi";
 import NoSSRWrapper from "../components/NoSSRWrapper";
-import { motion } from "framer-motion";
-import { getContract } from "../hooks/useContract";
+import { AccountContext } from "../components/Provider";
 //TODO: add animation
 
 export default function Main() {
+  const { ifAddressHasNFT } = useContext(AccountContext);
   const { address } = useAccount();
   const router = useRouter();
   const goPage = (page) => {
     router.push(page);
   };
-  const [ifAddressHasNFT, setIfAddressHasNFT] = useState(false);
-  const getAddressBalanceOf = async () => {
-    const contract = await getContract();
-    const balanceOf = await contract.balanceOf(address);
-    setIfAddressHasNFT(balanceOf.toNumber() === 0 ? false : true);
-  };
-  useEffect(() => {
-    if (address) {
-      getAddressBalanceOf();
-    }
-  }, []);
+
   return (
     <Background>
       <Box

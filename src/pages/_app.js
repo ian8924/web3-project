@@ -12,6 +12,7 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import Header from "../components/Header/Header";
 import Head from "next/head";
 import Logo from "../../src/assets/images/logo.ico";
+import { Provider } from "../components/Provider";
 
 const emotionCache = createCache({
   key: "style",
@@ -72,10 +73,12 @@ function MyApp({ Component, pageProps }) {
         <CacheProvider value={emotionCache}>
           <RainbowKitProvider chains={chains}>
             <ChakraProvider theme={theme}>
-              <Header />
-              <div className="pt-20">
-                <Component {...pageProps} />
-              </div>
+              <Provider>
+                <Header />
+                <div className="pt-20">
+                  <Component {...pageProps} />
+                </div>
+              </Provider>
             </ChakraProvider>
           </RainbowKitProvider>
         </CacheProvider>
